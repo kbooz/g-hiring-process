@@ -4,7 +4,7 @@
   "settings": {
 		"import/resolver": {
 			"alias": {
-				"map": [["@", "./"]]
+				"map": [["@/", "./"]]
 			}
 		}
 	},
@@ -17,7 +17,7 @@
 			"groups": [
 				["/^react$/", "/^react-(native|dom)$/", "/^next/"],
 				"module",
-				"/^@/",
+				"/^@\//",
 				["parent", "sibling"],
 				"index"
 			],
