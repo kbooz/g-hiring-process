@@ -1,3 +1,30 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next", "plugin:editorconfig/all", "plugin:@next/next/recommended", "prettier"],
+  "plugins": [ "editorconfig", "eslint-plugin-import-helpers", "prettier" ],
+  "settings": {
+		"import/resolver": {
+			"alias": {
+				"map": [["@", "./"]]
+			}
+		}
+	},
+  "rules": {
+	"editorconfig/indent": "off",
+    "import-helpers/order-imports": [
+		"warn",
+		{
+			"newlinesBetween": "always",
+			"groups": [
+				["/^react$/", "/^react-(native|dom)$/", "/^next/"],
+				"module",
+				"/^@/",
+				["parent", "sibling"],
+				"index"
+			],
+			"alphabetize": { "order": "asc", "ignoreCase": false }
+		}
+	],
+	"sort-imports": "off",
+	"prettier/prettier": "error"
+  }
 }
