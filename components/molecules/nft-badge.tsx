@@ -29,7 +29,7 @@ function NFTBadge({
 					<Box bg="gray.200" w="100%" h="100%" sx={{ aspectRatio: "1/1" }} />
 				}
 			/>
-			<Box p={4} bg="white" d="flex" justifyContent="space-between">
+			<Box p={4} bg="white" display="flex" justifyContent="space-between">
 				<Box>
 					<Text color="brand.purple.900" lineHeight="1">
 						{label}

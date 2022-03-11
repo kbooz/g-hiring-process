@@ -1,13 +1,20 @@
-import { Box, Button, HStack, Text } from "@chakra-ui/react";
+import {
+	Box,
+	type BoxProps,
+	Button,
+	forwardRef,
+	HStack,
+	Text,
+} from "@chakra-ui/react";
 import { IoNotifications } from "react-icons/io5";
 
 import Logo from "@/components/atoms/icons/logo";
 
 import Search from "../molecules/search";
 
-function Menu() {
+const Menu = forwardRef<BoxProps, "nav">(function Menu(props, ref) {
 	return (
-		<Box as="nav" px={6}>
+		<Box as="nav" px={6} ref={ref} {...props}>
 			<HStack
 				py={4}
 				justifyContent="space-between"
@@ -16,9 +23,9 @@ function Menu() {
 			>
 				<HStack gap={4} alignItems="center" w="40%">
 					<Logo w={10} h={10} />
-					<Search />
+					<Search display={["none", null, "flex"]} />
 				</HStack>
-				<HStack gap={4} alignItems="center">
+				<HStack gap={4} alignItems="center" display={["none", null, "flex"]}>
 					{["DAOs", "Gates", "People", "Join Discord"].map((s) => (
 						<Text key={s}>{s}</Text>
 					))}
@@ -29,6 +36,6 @@ function Menu() {
 			</HStack>
 		</Box>
 	);
-}
+});
 
 export default Menu;

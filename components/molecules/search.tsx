@@ -1,9 +1,15 @@
-import { Icon, Input, InputGroup, InputRightElement } from "@chakra-ui/react";
+import {
+	Icon,
+	Input,
+	InputGroup,
+	InputGroupProps,
+	InputRightElement,
+} from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
 
-function Search() {
+function Search(props: InputGroupProps) {
 	return (
-		<InputGroup>
+		<InputGroup {...props}>
 			<Input
 				borderRadius="3xl"
 				border="1px"
