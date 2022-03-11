@@ -34,7 +34,7 @@ function NFTBadge({
 					<Text color="brand.purple.900" lineHeight="1">
 						{label}
 					</Text>
-					<Text textStyle="bg" fontWeight="bold" fontSize="3xl">
+					<Text textStyle="bg" fontWeight="bold" fontSize={["xl", null, "3xl"]}>
 						{name}
 					</Text>
 				</Box>
