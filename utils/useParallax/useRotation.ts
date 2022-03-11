@@ -1,6 +1,7 @@
 import { MouseEventHandler, useCallback, useState } from "react";
 
-import { Rotation } from "./types";
+import { Rotation } from "@/types/coordinates";
+
 import { calculateRotation } from "./utils";
 
 export function useRotation(baseRotation = 20) {

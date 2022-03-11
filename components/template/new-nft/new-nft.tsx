@@ -1,12 +1,10 @@
+import dynamic from "next/dynamic";
 import { useLayoutEffect } from "react";
 
 import { Box, Button, HStack, Img, Text } from "@chakra-ui/react";
 
-import { Fireworks } from "@/components/atoms/fireworks";
 import { MotionBox, MotionButtonGroup } from "@/components/atoms/motion";
 import NFTBadge from "@/components/molecules/nft-badge";
-// import { useParallax } from "@/utils/useParallax/useParallax";
-
 import { NFT } from "@/types/nft";
 
 import {
@@ -16,6 +14,10 @@ import {
 	buttonsAnimation,
 } from "./animations";
 
+const Fireworks = dynamic(() => import("@/components/atoms/fireworks"), {
+	ssr: false,
+});
+
 type Props = {
 	nft: NFT;
 	menuHeight: number;
@@ -24,7 +26,7 @@ type Props = {
 function NewNFT({ nft, menuHeight }: Props) {
 	return (
 		<>
-			<Box position="fixed">
+			<Box position="fixed" zIndex={1} inset={0}>
 				<Fireworks />
 			</Box>
 			<MotionBox
@@ -39,6 +41,8 @@ function NewNFT({ nft, menuHeight }: Props) {
 				initial="hidden"
 				animate="show"
 				variants={container}
+				position="relative"
+				zIndex={2}
 			>
 				<MotionBox variants={textAnimation} textAlign="center">
 					<Text

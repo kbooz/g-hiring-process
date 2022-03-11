@@ -14,7 +14,7 @@ import Search from "../molecules/search";
 
 const Menu = forwardRef<BoxProps, "nav">(function Menu(props, ref) {
 	return (
-		<Box as="nav" px={6} ref={ref} {...props}>
+		<Box as="nav" px={6} ref={ref} position="relative" zIndex={10} {...props}>
 			<HStack
 				py={4}
 				justifyContent="space-between"

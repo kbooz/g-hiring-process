@@ -1,4 +1,6 @@
-import { Layer, ParallaxLayer, Rotation } from "./types";
+import { Rotation } from "@/types/coordinates";
+
+import { Layer, ParallaxLayer } from "./types";
 import { useRotation } from "./useRotation";
 import { formatTransform, mergeProps } from "./utils";
 

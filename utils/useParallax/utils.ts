@@ -1,4 +1,6 @@
-import { Layer, ParallaxLayer, Rotation, Scale, Translation } from "./types";
+import { Rotation, Scale, Translation } from "@/types/coordinates";
+
+import { Layer, ParallaxLayer } from "./types";
 
 export const defaultProp: Required<ParallaxLayer> = {
 	scale: { x: 1, y: 1 },

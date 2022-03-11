@@ -1,1 +1,1 @@
-export * from "./fireworks";
+export { default as default } from "./fireworks";

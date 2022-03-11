@@ -1,11 +1,17 @@
 import dynamic from "next/dynamic";
+import { useEffect } from "react";
 
-import { setup, draw, windowResized } from "./game";
+import Sketch from "react-p5";
 
-const Sketch = dynamic(() => import("react-p5"), {
-	ssr: false,
-});
+import { setup, draw, windowResized, onEnter, onExit } from "./game";
 
-export function Fireworks() {
+export default function Fireworks() {
+	useEffect(() => {
+		onEnter();
+		() => {
+			onExit();
+		};
+	}, []);
+
 	return <Sketch setup={setup} draw={draw} windowResized={windowResized} />;
 }
