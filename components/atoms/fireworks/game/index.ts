@@ -13,18 +13,19 @@ const blobs: Obj[] = [];
 let mousePosition: Position | undefined;
 let createdBlob = false;
 
-const onMousePressed = (e: MouseEvent) => {
-	mousePosition = { x: e.x, y: e.y };
-};
-const onMouseUp = () => {
-	mousePosition = undefined;
-	createdBlob = false;
-};
-
 export const setup = (p5: P5, canvasParentRef: Element) => {
 	p5.createCanvas(window.innerWidth, window.innerHeight).parent(
 		canvasParentRef
 	);
+
+	for (let i = 0; i < 10; i++) {
+		blobs.push(
+			new Obj(p5, emitter.position, {
+				x: p5.random(0, window.innerWidth),
+				y: p5.random(0, window.innerHeight),
+			})
+		);
+	}
 };
 
 export const draw = (p5: P5) => {
@@ -41,6 +42,18 @@ export const draw = (p5: P5) => {
 export const windowResized = (p5: P5) => {
 	p5.resizeCanvas(window.innerWidth, window.innerHeight);
 	emitter.resetPosition();
+};
+
+/**
+ * Mouse Events
+ */
+
+const onMousePressed = (e: MouseEvent) => {
+	mousePosition = { x: e.x, y: e.y };
+};
+const onMouseUp = () => {
+	mousePosition = undefined;
+	createdBlob = false;
 };
 
 export const onEnter = () => {

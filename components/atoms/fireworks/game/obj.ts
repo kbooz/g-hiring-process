@@ -64,11 +64,10 @@ export default class Obj {
 	/* Returns boolean value about the animation status */
 	draw(p5: P5): boolean {
 		const lastCoord = this.coordinates[this.coordinates.length - 1];
-
-		p5.stroke(this.hue);
+		(p5.drawingContext as CanvasRenderingContext2D).setLineDash([5, 10]);
+		p5.stroke("white");
 		p5.strokeWeight(2);
 		p5.line(lastCoord.x, lastCoord.y, this.position.x, this.position.y);
-
 		this.coordinates.pop();
 		this.coordinates.unshift({ ...this.position });
 

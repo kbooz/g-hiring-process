@@ -31,13 +31,12 @@ function NewNFT({ nft, menuHeight }: Props) {
 			</Box>
 			<MotionBox
 				as="main"
-				py="8"
+				py={8}
 				px={6}
-				height={`calc(100% - ${menuHeight}px)`}
 				display="flex"
 				flexFlow="column"
 				alignItems="center"
-				gap={[10, 8]}
+				gap={[12, 8]}
 				initial="hidden"
 				animate="show"
 				variants={container}
@@ -75,8 +74,8 @@ function NewNFT({ nft, menuHeight }: Props) {
 				</MotionBox>
 				<MotionButtonGroup
 					flexFlow={["column", "row"]}
-					spacing={[0, "2"]}
-					gap={[4, 0]}
+					spacing={0}
+					gap={[4, 2]}
 					alignSelf="stretch"
 					justifyContent="center"
 					variants={buttonsAnimation}
