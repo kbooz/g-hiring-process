@@ -48,8 +48,11 @@ export const windowResized = (p5: P5) => {
  * Mouse Events
  */
 
-const onMousePressed = (e: MouseEvent) => {
-	mousePosition = { x: e.x, y: e.y };
+const onMousePressed = (e: MouseEvent | TouchEvent) => {
+	mousePosition =
+		e instanceof MouseEvent
+			? { x: e.x, y: e.y }
+			: { x: e.touches[0].clientX, y: e.touches[0].clientY };
 };
 const onMouseUp = () => {
 	mousePosition = undefined;
@@ -58,10 +61,14 @@ const onMouseUp = () => {
 
 export const onEnter = () => {
 	window.addEventListener("mousedown", onMousePressed);
+	window.addEventListener("touchstart", onMousePressed);
+	window.addEventListener("mouseup", onMouseUp);
 	window.addEventListener("mouseup", onMouseUp);
 };
 
 export const onExit = () => {
 	window.removeEventListener("mousedown", onMousePressed);
+	window.removeEventListener("touchstart", onMousePressed);
+	window.removeEventListener("mouseup", onMouseUp);
 	window.removeEventListener("mouseup", onMouseUp);
 };
