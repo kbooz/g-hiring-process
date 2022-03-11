@@ -46,6 +46,7 @@ function NewNFT({ nft, menuHeight }: Props) {
 				<MotionBox variants={textAnimation} textAlign="center">
 					<Text
 						as="h1"
+						fontFamily="heading"
 						textStyle="bg"
 						fontSize={["4xl", "5xl", "6xl"]}
 						fontWeight="extrabold"
@@ -80,8 +81,10 @@ function NewNFT({ nft, menuHeight }: Props) {
 					justifyContent="center"
 					variants={buttonsAnimation}
 				>
-					<Button>Check your profile</Button>
-					<Button w={["100%", "10rem"]}>Close</Button>
+					<Button fontSize="xs">Check your profile</Button>
+					<Button fontSize="xs" w={["100%", "10rem"]}>
+						Close
+					</Button>
 				</MotionButtonGroup>
 			</MotionBox>
 		</>

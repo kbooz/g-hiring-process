@@ -30,11 +30,17 @@ function NFTBadge({
 				}
 			/>
 			<Box p={4} bg="white" display="flex" justifyContent="space-between">
-				<Box>
-					<Text color="brand.purple.900" lineHeight="1">
+				<Box display="flex" flexFlow="column" gap={["2", null, 1]}>
+					<Text fontSize="xs" color="brand.purple.900" lineHeight="1">
 						{label}
 					</Text>
-					<Text textStyle="bg" fontWeight="bold" fontSize={["xl", null, "3xl"]}>
+					<Text
+						fontFamily="heading"
+						textStyle="bg"
+						fontWeight="bold"
+						fontSize={["xl", null, "3xl"]}
+						lineHeight={["1.2", null, "1.2"]}
+					>
 						{name}
 					</Text>
 				</Box>

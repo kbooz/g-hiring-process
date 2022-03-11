@@ -33,17 +33,19 @@ const outlineVariant = (
 // https://chakra-ui.com/docs/styled-system/theming/component-style#styling-single-part-components
 export const Button: ComponentStyleConfig = {
 	baseStyle: {
+		fontFamily: "heading",
 		fontWeight: "bold",
 		textTransform: "uppercase",
 		borderRadius: "3xl",
-		py: 2,
-		px: 4,
 	},
 	variants: {
 		outline: ({ bgColor }) => ({
+			py: 2,
+			px: 4,
 			...outlineVariant(bgColor),
 		}),
 		outlineIcon: ({ bgColor }) => ({
+			p: 2,
 			...outlineVariant(bgColor),
 		}),
 	},

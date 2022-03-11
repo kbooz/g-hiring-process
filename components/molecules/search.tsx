@@ -13,9 +13,11 @@ function Search(props: InputGroupProps) {
 			<Input
 				borderRadius="3xl"
 				border="1px"
-				py={2}
+				pt={2}
+				pb={3}
 				placeholder="Search"
 				focusBorderColor="white"
+				lineHeight="0.9"
 			/>
 			<InputRightElement>
 				<Icon as={FaSearch} color="white" />
