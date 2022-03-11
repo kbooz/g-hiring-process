@@ -1,6 +1,8 @@
 import { type CSSWithMultiValues } from "@chakra-ui/react";
 import type { ComponentStyleConfig } from "@chakra-ui/theme";
 
+import { ChakraStylesheet } from "@/types/chakra";
+
 import colors from "../colors";
 import gradients from "../reusables/gradients";
 
@@ -13,6 +15,13 @@ const outlineHover = (
 	background: `linear-gradient(${bgColor}, ${bgColor}) padding-box, linear-gradient(${gradients.button}) border-box`,
 });
 
+const outlineVariant: ChakraStylesheet = {
+	border: "1px",
+	borderColor: "brand.gray.700",
+	transitionDuration: "0.2s",
+	transitionProperty: "box-shadow background border-color",
+};
+
 // https://chakra-ui.com/docs/styled-system/theming/component-style#styling-single-part-components
 export const Button: ComponentStyleConfig = {
 	baseStyle: {
@@ -24,10 +33,15 @@ export const Button: ComponentStyleConfig = {
 	},
 	variants: {
 		outline: ({ bgColor }) => ({
-			border: "1px",
-			borderColor: "brand.gray.700",
-			transitionDuration: "0.2s",
-			transitionProperty: "box-shadow background border-color",
+			...outlineVariant,
+			_hover: outlineHover(bgColor),
+			_focus: outlineHover(bgColor),
+		}),
+		outlineIcon: ({ bgColor }) => ({
+			...outlineVariant,
+			py: undefined,
+			px: undefined,
+			p: 2,
 			_hover: outlineHover(bgColor),
 			_focus: outlineHover(bgColor),
 		}),
