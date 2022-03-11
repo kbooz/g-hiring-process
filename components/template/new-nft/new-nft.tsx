@@ -1,7 +1,8 @@
 import { useLayoutEffect } from "react";
 
-import { Button, HStack, Img, Text } from "@chakra-ui/react";
+import { Box, Button, HStack, Img, Text } from "@chakra-ui/react";
 
+import { Fireworks } from "@/components/atoms/fireworks";
 import { MotionBox, MotionButtonGroup } from "@/components/atoms/motion";
 import NFTBadge from "@/components/molecules/nft-badge";
 // import { useParallax } from "@/utils/useParallax/useParallax";
@@ -23,6 +24,9 @@ type Props = {
 function NewNFT({ nft, menuHeight }: Props) {
 	return (
 		<>
+			<Box position="fixed">
+				<Fireworks />
+			</Box>
 			<MotionBox
 				as="main"
 				py="8"
