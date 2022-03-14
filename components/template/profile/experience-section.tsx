@@ -24,29 +24,41 @@ export function ExperienceSeciton({
 	period,
 	workProof,
 }: ProfileExperience) {
+	const margin = 5;
 	return (
-		<VStack alignItems="stretch">
-			<HStack alignItems="center" justifyContent="space-between">
+		<Box alignItems="stretch" pl={margin}>
+			<HStack ml={-margin} alignItems="center" justifyContent="space-between">
 				<HStack alignItems="center">
 					<Img rounded="full" w={10} h={10} src={dao.image} />
-					<Text>{role}</Text>
+					<Text fontSize="xl" textStyle="sectionTitle">
+						{role}
+					</Text>
 				</HStack>
 				<Button variant="outline-icon" p={2} minW={0} height="auto">
 					<Icon w=".75rem" h=".75rem" as={FaPen} />
 				</Button>
 			</HStack>
-			<Text>{dao.name}</Text>
-			<Text>
-				{start} — {end ?? "Present"} • {period}
-			</Text>
-			<CropText>{description}</CropText>
+			<Box
+				pl={margin + 2}
+				borderLeft="1px"
+				borderLeftColor="whiteAlpha.200"
+				pt={1}
+				pb={12}
+			>
+				<Text>{dao.name}</Text>
+				<Text>
+					{start} — {end ?? "Present"} • {period}
+				</Text>
+				<CropText>{description}</CropText>
+			</Box>
 			{workProof?.map((proof, i) => (
 				<WorkProof
 					key={proof.title}
+					margin={margin}
 					isLast={i === workProof.length - 1}
 					{...proof}
 				/>
 			))}
-		</VStack>
+		</Box>
 	);
 }

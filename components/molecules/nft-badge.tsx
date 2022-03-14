@@ -35,8 +35,9 @@ function NFTBadge({
 						{label}
 					</Text>
 					<Text
+						display="inline-block"
 						fontFamily="heading"
-						textStyle="bg"
+						textStyle="primaryGradient"
 						fontWeight="bold"
 						fontSize={["xl", null, "3xl"]}
 						lineHeight={["1.2", null, "1.2"]}

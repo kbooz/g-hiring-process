@@ -6,6 +6,7 @@ import colors from "./colors";
 import * as components from "./components";
 import fonts from "./fonts";
 import globalStyles from "./global-styles";
+import layerStyles from "./layer-styles";
 import shadows from "./shadows";
 import textStyles from "./text-styles";
 
@@ -24,6 +25,7 @@ const theme = extendTheme({
 	shadows,
 	styles: globalStyles,
 	textStyles,
+	layerStyles,
 });
 
 export default theme;

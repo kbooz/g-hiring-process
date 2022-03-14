@@ -12,14 +12,42 @@ import NFTBadge from "@/components/molecules/nft-badge";
 import type { WorkProof as WorkProofI } from "@/types/profile";
 
 type Props = {
+	margin: number;
 	isLast?: boolean;
 } & WorkProofI;
 
-export function WorkProof({ title, type, isLast, nfts }: Props) {
+export function WorkProof({ title, margin, type, isLast, nfts }: Props) {
 	const [isOpen, toggleOpen] = useToggle(true);
 	return (
-		<MotionBox animate={isOpen ? "open" : "closed"}>
-			<HStack justifyContent="space-between">
+		<MotionBox
+			position="relative"
+			animate={isOpen ? "open" : "closed"}
+			_before={{
+				content: "''",
+				display: "block",
+				background: "whiteAlpha.200",
+				width: "1px",
+				height: isLast ? "calc(1rem + 1px)" : "full",
+				left: 0,
+				top: 0,
+				position: "absolute",
+			}}
+			pb={4}
+		>
+			<HStack
+				justifyContent="space-between"
+				ml={margin}
+				_before={{
+					content: "''",
+					display: "block",
+					background: "whiteAlpha.300",
+					width: 1,
+					height: 1,
+					left: "-1.5px",
+					borderRadius: "full",
+					position: "absolute",
+				}}
+			>
 				<Button onClick={toggleOpen}>
 					{title}
 					<MotionCenter
@@ -35,7 +63,7 @@ export function WorkProof({ title, type, isLast, nfts }: Props) {
 				</Button>
 				<Button variant="inline">See All</Button>
 			</HStack>
-			<MotionHStack
+			<MotionBox
 				transition={{ type: "tween" }}
 				variants={{
 					open: { height: "auto", opacity: 1 },
@@ -43,10 +71,12 @@ export function WorkProof({ title, type, isLast, nfts }: Props) {
 				}}
 				overflow="hidden"
 			>
-				{nfts.map((nft) => (
-					<NFTBadge key={nft.name} w={200} small {...nft} />
-				))}
-			</MotionHStack>
+				<HStack ml={margin} py={6}>
+					{nfts.map((nft) => (
+						<NFTBadge key={nft.name} w={200} small {...nft} />
+					))}
+				</HStack>
+			</MotionBox>
 		</MotionBox>
 	);
 }

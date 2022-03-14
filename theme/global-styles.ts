@@ -5,6 +5,7 @@ const globalStyles = {
 		},
 		body: {
 			bg: "brand.purple.900",
+			letterSpacing: "0.05em",
 		},
 	},
 };

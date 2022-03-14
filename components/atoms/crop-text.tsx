@@ -1,19 +1,20 @@
 import { useMemo, useState } from "react";
 
-import { Button, Text } from "@chakra-ui/react";
+import { Button, Text, TextProps } from "@chakra-ui/react";
 
 type Props = {
 	children: string;
 	type?: "paragraph" | "percentage";
 	shownPercentage?: number;
 	splitParagraph?: string;
-};
+} & Partial<TextProps>;
 
 export function CropText({
 	children,
 	type = "paragraph",
 	shownPercentage = 0.4,
 	splitParagraph = "\\n",
+	...props
 }: Props) {
 	const [isOpen, setIsOpen] = useState(() => {
 		if (type === "percentage") return false;
@@ -29,7 +30,7 @@ export function CropText({
 		return children.split(splitParagraph)[0];
 	}, [isOpen, children, type, shownPercentage, splitParagraph]);
 	return (
-		<Text whiteSpace="pre-line">
+		<Text whiteSpace="pre-line" {...props}>
 			{subtext}
 			{!isOpen && (
 				<Button type="button" variant="inline" ml={2} onClick={onShow}>

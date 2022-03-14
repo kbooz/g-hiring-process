@@ -1,10 +1,19 @@
+import { SystemStyleObjectRecord } from "@chakra-ui/react";
+
 import gradients from "./reusables/gradients";
 
-const textStyles = {
-	bg: {
-		d: "inline-block",
+const textStyles: SystemStyleObjectRecord = {
+	primaryGradient: {
 		bgGradient: `linear(${gradients.main})`,
 		bgClip: "text",
+	},
+	secondaryGradient: {
+		bgGradient: `linear(${gradients.inline})`,
+		bgClip: "text",
+	},
+	sectionTitle: {
+		letterSpacing: "initial",
+		fontWeight: "bold",
 	},
 };
 

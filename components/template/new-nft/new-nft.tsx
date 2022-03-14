@@ -47,7 +47,8 @@ export function NewNFTTemplate({ nft }: Props) {
 					<Text
 						as="h1"
 						fontFamily="heading"
-						textStyle="bg"
+						display="inline-block"
+						textStyle="primaryGradient"
 						fontSize={["4xl", "5xl", "6xl"]}
 						fontWeight="extrabold"
 					>
