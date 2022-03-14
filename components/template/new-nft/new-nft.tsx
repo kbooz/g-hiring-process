@@ -1,11 +1,12 @@
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { useLayoutEffect } from "react";
 
 import { Box, Button, HStack, Img, Text } from "@chakra-ui/react";
 
 import { MotionBox, MotionButtonGroup } from "@/components/atoms/motion";
 import NFTBadge from "@/components/molecules/nft-badge";
-import { NFT } from "@/types/nft";
+import { NFTwithDAO } from "@/types/nft";
 
 import {
 	container,
@@ -19,11 +20,10 @@ const Fireworks = dynamic(() => import("@/components/atoms/fireworks"), {
 });
 
 type Props = {
-	nft: NFT;
-	menuHeight: number;
+	nft: Required<NFTwithDAO>;
 };
 
-function NewNFT({ nft, menuHeight }: Props) {
+export function NewNFTTemplate({ nft }: Props) {
 	return (
 		<>
 			<Box position="fixed" zIndex={1} inset={0}>
@@ -81,7 +81,11 @@ function NewNFT({ nft, menuHeight }: Props) {
 					justifyContent="center"
 					variants={buttonsAnimation}
 				>
-					<Button fontSize="xs">Check your profile</Button>
+					<Link href="/profile" passHref>
+						<Button as="a" fontSize="xs">
+							Check your profile
+						</Button>
+					</Link>
 					<Button fontSize="xs" w={["100%", "10rem"]}>
 						Close
 					</Button>
@@ -90,5 +94,3 @@ function NewNFT({ nft, menuHeight }: Props) {
 		</>
 	);
 }
-
-export default NewNFT;

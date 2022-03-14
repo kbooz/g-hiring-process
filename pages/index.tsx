@@ -4,13 +4,11 @@ import Head from "next/head";
 import { useMeasure } from "react-use";
 
 import Menu from "@/components/organisms/menu";
-import NewNFT from "@/components/template/new-nft/new-nft";
+import { NewNFTTemplate } from "@/components/template/new-nft/new-nft";
 import { NFT } from "@/types/nft";
 
 const Home: NextPage = () => {
-	const [menuRef, { height }] = useMeasure<HTMLElement>();
-
-	const nft: NFT = {
+	const nft: Required<NFT> = {
 		name: "BANK.Beginner",
 		altName: "Bankless Beginner",
 		image: "https://source.unsplash.com/random/500x500/?generative",
@@ -23,10 +21,10 @@ const Home: NextPage = () => {
 	return (
 		<>
 			<Head>
-				<title>Create Next App</title>
+				<title>New NFT | Gateway</title>
 			</Head>
-			<Menu ref={menuRef} />
-			<NewNFT nft={nft} menuHeight={height} />
+			<Menu />
+			<NewNFTTemplate nft={nft} />
 		</>
 	);
 };

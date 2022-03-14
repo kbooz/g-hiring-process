@@ -29,7 +29,7 @@ const Menu = forwardRef<BoxProps, "nav">(function Menu(props, ref) {
 					{["DAOs", "Gates", "People", "Join Discord"].map((s) => (
 						<Text key={s}>{s}</Text>
 					))}
-					<Button variant="outlineIcon">
+					<Button variant="outline" p={2}>
 						<IoNotifications />
 					</Button>
 				</HStack>
