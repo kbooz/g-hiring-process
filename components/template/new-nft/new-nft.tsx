@@ -20,7 +20,7 @@ const Fireworks = dynamic(() => import("@/components/atoms/fireworks"), {
 });
 
 type Props = {
-	nft: Required<NFTwithDAO>;
+	nft: NFTwithDAO;
 };
 
 export function NewNFTTemplate({ nft }: Props) {
@@ -72,7 +72,7 @@ export function NewNFTTemplate({ nft }: Props) {
 					minW="72"
 					sx={{ aspectRatio: "1 / 1", perspective: "600px" }}
 				>
-					<NFTBadge name={nft.name} image={nft.image} />
+					<NFTBadge {...nft} />
 				</MotionBox>
 				<MotionButtonGroup
 					flexFlow={["column", "row"]}

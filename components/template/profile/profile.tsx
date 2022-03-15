@@ -29,7 +29,7 @@ export function ProfileTemplate({ profile }: { profile: Profile }) {
 				top={6}
 				src={profile.avatar}
 			/>
-			<VStack alignItems="stretch" spacing="0">
+			<VStack alignItems="stretch" spacing="0" width="full">
 				<ProfileBio profile={profile} />
 				<ProfileAbout about={profile.about}></ProfileAbout>
 				<ProfileExperiences experiences={profile.experience} />
