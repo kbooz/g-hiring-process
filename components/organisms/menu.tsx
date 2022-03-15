@@ -5,10 +5,12 @@ import {
 	forwardRef,
 	HStack,
 	Text,
+	Icon,
 } from "@chakra-ui/react";
 import { IoNotifications } from "react-icons/io5";
 
 import Logo from "@/components/atoms/icons/logo";
+import { shortenWalletAddress } from "@/utils/text";
 
 import Search from "../molecules/search";
 
@@ -29,9 +31,10 @@ const Menu = forwardRef<BoxProps, "nav">(function Menu(props, ref) {
 					{["DAOs", "Gates", "People", "Join Discord"].map((s) => (
 						<Text key={s}>{s}</Text>
 					))}
-					<Button variant="outline" p={2}>
-						<IoNotifications />
+					<Button variant="outline-icon" p={2}>
+						<Icon as={IoNotifications} height="1rem" width="1rem" />
 					</Button>
+					<Button>{shortenWalletAddress("0x3212312312321321321")}</Button>
 				</HStack>
 			</HStack>
 		</Box>

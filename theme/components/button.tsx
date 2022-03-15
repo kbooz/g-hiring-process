@@ -46,14 +46,16 @@ export const Button: ComponentStyleConfig = {
 		outline: {
 			py: 2,
 			px: 4,
+			width: "auto",
+			minWidth: "auto",
 			...outline,
 			_hover: outlineHover,
 			_focus: outlineHover,
 		},
 		"outline-icon": {
-			...outline,
 			p: 2,
-			minW: 0,
+			minWidth: "auto",
+			...outline,
 			_hover: outlineHover,
 			_focus: outlineHover,
 			_active: {
@@ -63,6 +65,7 @@ export const Button: ComponentStyleConfig = {
 			},
 		},
 		chevron: {
+			minWidth: 0,
 			...inline,
 			color: "white",
 			fontWeight: "bold",
@@ -71,6 +74,7 @@ export const Button: ComponentStyleConfig = {
 			_active: { background: "transparent", color: "white" },
 		},
 		inline: {
+			minWidth: 0,
 			...inline,
 			color: "whiteAlpha.600",
 			_hover: {
@@ -86,6 +90,7 @@ export const Button: ComponentStyleConfig = {
 			},
 		},
 		"inline-gradient": {
+			minWidth: 0,
 			...inline,
 			background: `linear-gradient(${gradients.inline})`,
 			backgroundClip: "text",
