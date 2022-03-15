@@ -16,7 +16,7 @@ export function ProfileExperiences({
 				<Text textStyle="sectionTitle" fontSize="3xl">
 					Experience
 				</Text>
-				<Button variant="outline-icon" p={1} minW={0} height="auto">
+				<Button variant="outline-icon" p={1}>
 					<Icon w="1.25rem" h="1.25rem" as={AiOutlinePlus} />
 				</Button>
 			</HStack>

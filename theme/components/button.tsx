@@ -52,6 +52,8 @@ export const Button: ComponentStyleConfig = {
 		},
 		"outline-icon": {
 			...outline,
+			p: 2,
+			minW: 0,
 			_hover: outlineHover,
 			_focus: outlineHover,
 			_active: {

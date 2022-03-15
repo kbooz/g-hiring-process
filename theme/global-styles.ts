@@ -8,6 +8,10 @@ const globalStyles = {
 			letterSpacing: "0.05em",
 			fontWeight: "400",
 		},
+		/* Fix for popup button rendering extra height when child is an Icon/SVG */
+		'[aria-haspopup="menu"] > span': {
+			display: "contents",
+		},
 	},
 };
 

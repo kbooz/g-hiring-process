@@ -34,7 +34,7 @@ export function ExperienceSeciton({
 						{role}
 					</Text>
 				</HStack>
-				<Button variant="outline-icon" p={2} minW={0} height="auto">
+				<Button variant="outline-icon">
 					<Icon w=".75rem" h=".75rem" as={FaPen} />
 				</Button>
 			</HStack>

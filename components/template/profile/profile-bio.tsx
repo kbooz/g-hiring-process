@@ -39,12 +39,13 @@ export function ProfileBio({ profile }: { profile: Profile }) {
 	};
 	return (
 		<Stack
-			direction={["column", "column", "row"]}
+			direction={["column", null, "row"]}
 			as="section"
 			layerStyle="profileSection"
 			pt={0}
 			width="full"
-			spacing={6}
+			spacing={0}
+			gap={6}
 		>
 			<Image
 				display={["block", null, null, "none"]}
@@ -57,7 +58,7 @@ export function ProfileBio({ profile }: { profile: Profile }) {
 			/>
 			<Box width="full">
 				<Stack
-					direction={["column", "column", "row"]}
+					direction={["column", null, "row"]}
 					justifyContent="space-between"
 					alignItems={"flex-start"}
 				>
@@ -80,23 +81,12 @@ export function ProfileBio({ profile }: { profile: Profile }) {
 						</Text>
 						<CopyButton text={profile.address} />
 						<Menu>
-							<MenuButton
-								as={Button}
-								variant="outline-icon"
-								p={2}
-								minW={0}
-								height="auto"
-								sx={{
-									span: {
-										display: "contents",
-									},
-								}}
-							>
+							<MenuButton as={Button} variant="outline-icon">
 								<Icon w=".75rem" h=".75rem" as={FaPen} />
 							</MenuButton>
-							<MenuList bg="white" color="brand.purple.900" py={4}>
-								<MenuItem _focus={{ bg: "gray.200" }}>Edit Profile</MenuItem>
-								<MenuItem _focus={{ bg: "gray.200" }}>Manage Wallets</MenuItem>
+							<MenuList>
+								<MenuItem>Edit Profile</MenuItem>
+								<MenuItem>Manage Wallets</MenuItem>
 							</MenuList>
 						</Menu>
 					</HStack>
@@ -117,9 +107,6 @@ export function ProfileBio({ profile }: { profile: Profile }) {
 								target="_blank"
 								rel="noopener noreferrer"
 								variant="outline-icon"
-								minW={0}
-								p={2}
-								fontSize="xs"
 								aria-label={icon ? socialIcons[icon].name : ""}
 							>
 								{icon && <Icon w="1rem" h="1rem" as={socialIcons[icon].icon} />}
@@ -129,9 +116,6 @@ export function ProfileBio({ profile }: { profile: Profile }) {
 					<Button
 						type="button"
 						variant="outline-icon"
-						minW={0}
-						p={2}
-						fontSize="xs"
 						aria-label="Copy to share"
 						onClick={onShareLink}
 					>
