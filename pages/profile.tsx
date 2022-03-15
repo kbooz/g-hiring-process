@@ -8,14 +8,14 @@ import { ProfileTemplate } from "@/components/template/profile";
 import { NFT } from "@/types/nft";
 import { ProfileExperience } from "@/types/profile";
 
-const nft: NFT = {
+const nft = (): NFT => ({
 	name: "BANK.Beginner",
 	altName: "Bankless Beginner",
-	image: "https://source.unsplash.com/random/500x500/?generative",
+	image: `https://source.unsplash.com/random/300x300/?generative&a=${Math.random()}`,
 	date: "Dec 2021",
-};
+});
 
-const experience: ProfileExperience = {
+const experience = (): ProfileExperience => ({
 	role: "UI Designer",
 	dao: {
 		name: "Bankless DAO",
@@ -29,15 +29,15 @@ const experience: ProfileExperience = {
 		{
 			title: "Contributor NFT",
 			type: "nft",
-			nfts: [nft],
+			nfts: [nft()],
 		},
 		{
 			title: "Other Credentials",
 			type: "nft",
-			nfts: [nft, nft, nft],
+			nfts: [nft(), nft(), nft()],
 		},
 	],
-};
+});
 
 const Profile: NextPage = () => {
 	return (
@@ -51,7 +51,7 @@ const Profile: NextPage = () => {
 					address: "0x3212312312321321321",
 					name: "Masterstark",
 					username: "@Masterstark",
-					avatar: "",
+					avatar: "https://source.unsplash.com/random/500x500/?generative&a=1",
 					bio: "I share about DAOs, social tokens and web3 communities.\nCo-fouder of @mygateway, NFT Collector & Writer @mirrorxyz.",
 					url: "www.mygateway.xyz",
 					links: [
@@ -78,7 +78,7 @@ const Profile: NextPage = () => {
 					],
 					about:
 						"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at felis quis sem facilisis convallis. Curabitur vel nisl tortor. Quisque eleifend nibh magna, vitae pellentesque ante scelerisque nec. Proin in lacus viverra, facilisis massa sed, iaculis dui. Integer maximus nulla sit amet massa tristique, in sagittis neque volutpat. Suspendisse sit amet suscipit arcu. Mauris volutpat tellus nunc, at lobortis leo sollicitudin nec.",
-					experience: [experience, experience],
+					experience: [experience(), experience()],
 				}}
 			/>
 		</>
