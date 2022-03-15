@@ -12,6 +12,7 @@ const nft: NFT = {
 	name: "BANK.Beginner",
 	altName: "Bankless Beginner",
 	image: "https://source.unsplash.com/random/500x500/?generative",
+	date: "Dec 2021",
 };
 
 const experience: ProfileExperience = {
@@ -50,6 +51,7 @@ const Profile: NextPage = () => {
 					address: "0x3212312312321321321",
 					name: "Masterstark",
 					username: "@Masterstark",
+					avatar: "",
 					bio: "I share about DAOs, social tokens and web3 communities.\nCo-fouder of @mygateway, NFT Collector & Writer @mirrorxyz.",
 					url: "www.mygateway.xyz",
 					links: [

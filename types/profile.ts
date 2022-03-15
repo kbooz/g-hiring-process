@@ -28,6 +28,7 @@ export type Profile = {
 	address: string;
 	name: string;
 	username: string;
+	avatar: string;
 	url: string;
 	bio: string;
 	links: ProfileLink[];

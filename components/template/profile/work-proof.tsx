@@ -73,7 +73,7 @@ export function WorkProof({ title, margin, type, isLast, nfts }: Props) {
 			>
 				<HStack ml={margin} py={6}>
 					{nfts.map((nft) => (
-						<NFTBadge key={nft.name} w={200} small {...nft} />
+						<NFTBadge key={nft.name} w={200} isSmall {...nft} />
 					))}
 				</HStack>
 			</MotionBox>

@@ -25,7 +25,7 @@ export function ProfileBio({ profile }: { profile: Profile }) {
 		}
 	};
 	return (
-		<Box as="section" layerStyle="profileSection" pt={0}>
+		<Box as="section" layerStyle="profileSection" pt={0} width="full">
 			<HStack justifyContent="space-between" alignItems="start">
 				<Box>
 					<Text textStyle="sectionTitle" fontSize={36}>

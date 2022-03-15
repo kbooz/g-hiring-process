@@ -4,6 +4,7 @@ export type NFT = {
 	name: string;
 	altName: string;
 	image: string;
+	date?: string;
 };
 
 export type NFTwithDAO = NFT & {

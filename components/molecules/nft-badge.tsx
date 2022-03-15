@@ -1,26 +1,31 @@
-import { Box, type BoxProps, Image, Text } from "@chakra-ui/react";
+import {
+	Box,
+	type BoxProps,
+	Image,
+	Text,
+	HStack,
+	VStack,
+} from "@chakra-ui/react";
+
+import { NFT } from "@/types/nft";
 
 type Props = {
-	label?: string;
-	bg?: string;
-	name: string;
-	image: string;
-	earnDate?: string; // TODO: parse date with moment/dayjs/date-fn
-	small?: boolean;
-};
+	isSmall?: boolean;
+} & NFT;
 
 function NFTBadge({
 	name,
-	earnDate,
-	label = "NFT Badge",
+	altName,
+	date,
 	image,
+	isSmall,
 	...props
 }: Props & BoxProps) {
 	return (
 		<Box borderRadius="2xl" overflow="hidden" {...props}>
 			<Image
 				src={image}
-				alt={name}
+				alt={altName}
 				objectFit="cover"
 				width="100%"
 				height="100%"
@@ -29,29 +34,40 @@ function NFTBadge({
 					<Box bg="gray.200" w="100%" h="100%" sx={{ aspectRatio: "1/1" }} />
 				}
 			/>
-			<Box p={4} bg="white" display="flex" justifyContent="space-between">
-				<Box display="flex" flexFlow="column" gap={["2", null, 1]}>
-					<Text fontSize="xs" color="brand.purple.900" lineHeight="1">
-						{label}
-					</Text>
+			<HStack
+				p={isSmall ? 3 : 4}
+				bg="white"
+				justifyContent="space-between"
+				alignItems="stretch"
+				color="brand.purple.900"
+				fontSize={isSmall ? 8 : "sm"}
+				lineHeight="1"
+			>
+				<VStack alignItems="flex-start" spacing={["2", null, 1]}>
+					<Text>{name}</Text>
 					<Text
-						display="inline-block"
 						fontFamily="heading"
 						textStyle="primaryGradient"
 						fontWeight="bold"
-						fontSize={["xl", null, "3xl"]}
-						lineHeight={["1.2", null, "1.2"]}
+						fontSize={isSmall ? "sm" : ["xl", null, "3xl"]}
+						lineHeight={"1.2"}
+						letterSpacing={isSmall ? "normal" : undefined}
+						textOverflow="ellipsis"
 					>
 						{name}
 					</Text>
-				</Box>
-				{earnDate && (
-					<Box>
-						<Text>Earned</Text>
-						<Text>{earnDate}</Text>
-					</Box>
+				</VStack>
+				{date && (
+					<VStack
+						alignItems="flex-start"
+						justifyContent="space-between"
+						spacing={["2", null, 1]}
+					>
+						<Text opacity={0.6}>Earned</Text>
+						<Text lineHeight={2}>{date}</Text>
+					</VStack>
 				)}
-			</Box>
+			</HStack>
 		</Box>
 	);
 }
