@@ -9,7 +9,7 @@ const globalStyles = {
 			fontWeight: "400",
 		},
 		/* Fix for popup button rendering extra height when child is an Icon/SVG */
-		'[aria-haspopup="menu"] > span': {
+		'[aria-haspopup="menu"] > span:first-of-type': {
 			display: "contents",
 		},
 	},

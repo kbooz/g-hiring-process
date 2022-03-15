@@ -6,7 +6,13 @@ import {
 	HStack,
 	Text,
 	Icon,
+	Menu as ChakraMenu,
+	Menu,
+	MenuButton,
+	MenuList,
+	MenuItem,
 } from "@chakra-ui/react";
+import { AiFillCaretDown } from "react-icons/ai";
 import { IoNotifications } from "react-icons/io5";
 
 import Logo from "@/components/atoms/icons/logo";
@@ -14,7 +20,7 @@ import { shortenWalletAddress } from "@/utils/text";
 
 import Search from "../molecules/search";
 
-const Menu = forwardRef<BoxProps, "nav">(function Menu(props, ref) {
+const Manu = forwardRef<BoxProps, "nav">(function Manu(props, ref) {
 	return (
 		<Box as="nav" px={6} ref={ref} position="relative" zIndex={10} {...props}>
 			<HStack
@@ -34,11 +40,31 @@ const Menu = forwardRef<BoxProps, "nav">(function Menu(props, ref) {
 					<Button variant="outline-icon" p={2}>
 						<Icon as={IoNotifications} height="1rem" width="1rem" />
 					</Button>
-					<Button>{shortenWalletAddress("0x3212312312321321321")}</Button>
+					<ChakraMenu>
+						<MenuButton
+							as={Button}
+							variant="outline-active"
+							fontSize="sm"
+							rightIcon={
+								<Icon
+									as={AiFillCaretDown}
+									width="0.75rem"
+									height="0.75rem"
+									color="brand.pink.500"
+								/>
+							}
+						>
+							{shortenWalletAddress("0x3212312312321321321")}
+						</MenuButton>
+						<MenuList>
+							<MenuItem>Edit Profile</MenuItem>
+							<MenuItem>Manage Wallets</MenuItem>
+						</MenuList>
+					</ChakraMenu>
 				</HStack>
 			</HStack>
 		</Box>
 	);
 });
 
-export default Menu;
+export default Manu;

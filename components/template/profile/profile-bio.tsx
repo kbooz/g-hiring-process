@@ -1,4 +1,4 @@
-import Link from "next/link";
+import NextLink from "next/link";
 
 import {
 	Box,
@@ -12,6 +12,7 @@ import {
 	MenuList,
 	Stack,
 	Text,
+	Link,
 } from "@chakra-ui/react";
 import { FaPen } from "react-icons/fa";
 import { IoShareSocial } from "react-icons/io5";
@@ -94,16 +95,16 @@ export function ProfileBio({ profile }: { profile: Profile }) {
 				<Text whiteSpace="pre-line" mt={5} color="whiteAlpha.600">
 					{profile.bio}
 				</Text>
-				<Link passHref href={prependProtocol(profile.url)}>
-					<Text as="a" target="_blank" mt={7} display="block">
+				<NextLink passHref href={prependProtocol(profile.url)}>
+					<Link target="_blank" mt={7} display="inline-block">
 						{profile.url}
-					</Text>
-				</Link>
+					</Link>
+				</NextLink>
 				<HStack mt={7}>
 					{profile.links.map(({ href, icon }) => (
-						<Link key={icon} href={href} passHref>
+						<NextLink key={icon} href={href} passHref>
 							<Button
-								as="a"
+								as={Link}
 								target="_blank"
 								rel="noopener noreferrer"
 								variant="outline-icon"
@@ -111,7 +112,7 @@ export function ProfileBio({ profile }: { profile: Profile }) {
 							>
 								{icon && <Icon w="1rem" h="1rem" as={socialIcons[icon].icon} />}
 							</Button>
-						</Link>
+						</NextLink>
 					))}
 					<Button
 						type="button"

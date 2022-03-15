@@ -30,9 +30,7 @@ export function ProfileTemplate({ profile }: { profile: Profile }) {
 				src={profile.avatar}
 			/>
 			<VStack alignItems="stretch" spacing="0">
-				<HStack spacing="0" gap={6} alignItems="flex-start">
-					<ProfileBio profile={profile} />
-				</HStack>
+				<ProfileBio profile={profile} />
 				<ProfileAbout about={profile.about}></ProfileAbout>
 				<ProfileExperiences experiences={profile.experience} />
 			</VStack>
