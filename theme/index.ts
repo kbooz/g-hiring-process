@@ -1,6 +1,4 @@
 import { extendTheme } from "@chakra-ui/react";
-import "@fontsource/poppins/700.css";
-import "@fontsource/be-vietnam/500.css";
 
 import colors from "./colors";
 import * as components from "./components";

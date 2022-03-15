@@ -6,6 +6,7 @@ const globalStyles = {
 		body: {
 			bg: "brand.purple.900",
 			letterSpacing: "0.05em",
+			fontWeight: "400",
 		},
 	},
 };

@@ -46,10 +46,10 @@ export function ExperienceSeciton({
 				pb={12}
 			>
 				<Text>{dao.name}</Text>
-				<Text>
+				<Text color="whiteAlpha.600">
 					{start} — {end ?? "Present"} • {period}
 				</Text>
-				<CropText>{description}</CropText>
+				<CropText mt={7}>{description}</CropText>
 			</Box>
 			{workProof?.map((proof, i) => (
 				<WorkProof

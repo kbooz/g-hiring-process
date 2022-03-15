@@ -2,12 +2,7 @@ import { Box, Button, HStack, Icon, Text } from "@chakra-ui/react";
 import { FaChevronDown } from "react-icons/fa";
 import { useToggle } from "react-use";
 
-import {
-	MotionBox,
-	MotionCenter,
-	MotionHStack,
-	MotionIcon,
-} from "@/components/atoms/motion";
+import { MotionBox, MotionCenter } from "@/components/atoms/motion";
 import NFTBadge from "@/components/molecules/nft-badge";
 import type { WorkProof as WorkProofI } from "@/types/profile";
 
@@ -48,7 +43,7 @@ export function WorkProof({ title, margin, type, isLast, nfts }: Props) {
 					position: "absolute",
 				}}
 			>
-				<Button variant="chevron" onClick={toggleOpen} ml={-2}>
+				<Button variant="chevron" onClick={toggleOpen}>
 					{title}
 					<MotionCenter
 						ml={2}

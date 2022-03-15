@@ -3,7 +3,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 
 import { ProfileExperience } from "@/types/profile";
 
-import { ExperienceSeciton } from "./experience-section";
+import { ExperienceSeciton } from "./experience/experience-section";
 
 export function ProfileExperiences({
 	experiences,

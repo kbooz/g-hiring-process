@@ -31,7 +31,11 @@ export function ProfileBio({ profile }: { profile: Profile }) {
 					<Text textStyle="sectionTitle" fontSize={36}>
 						{profile.name}
 					</Text>
-					<Text textStyle="secondaryGradient" lineHeight="1">
+					<Text
+						textStyle="secondaryGradient"
+						fontWeight="semibold"
+						lineHeight="1"
+					>
 						{profile.username}
 					</Text>
 				</Box>
