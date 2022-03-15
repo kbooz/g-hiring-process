@@ -33,7 +33,7 @@ export function CropText({
 		<Text whiteSpace="pre-line" {...props}>
 			{subtext}
 			{!isOpen && (
-				<Button type="button" variant="inline" ml={2} onClick={onShow}>
+				<Button type="button" variant="inline-gradient" ml={2} onClick={onShow}>
 					See more
 				</Button>
 			)}

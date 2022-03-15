@@ -6,6 +6,8 @@ import { ChakraStylesheet } from "@/types/chakra";
 import colors from "../colors";
 import gradients from "../reusables/gradients";
 
+/* Styles */
+
 const outline: ChakraStylesheet = {
 	height: "auto",
 	border: "1px",
@@ -19,6 +21,16 @@ const outlineHover: CSSWithMultiValues = {
 	background: `linear-gradient(${colors.brand.purple["900"]}, ${colors.brand.purple["900"]}) padding-box, linear-gradient(${gradients.button}) border-box`,
 };
 
+const inline: ChakraStylesheet = {
+	fontFamily: "body",
+	fontWeight: "normal",
+	verticalAlign: "baseline",
+	textTransform: "none",
+	height: "auto",
+	paddingBottom: 2,
+	paddingTop: 1,
+};
+
 // https://chakra-ui.com/docs/styled-system/theming/component-style#styling-single-part-components
 export const Button: ComponentStyleConfig = {
 	baseStyle: {
@@ -28,6 +40,7 @@ export const Button: ComponentStyleConfig = {
 		borderRadius: "3xl",
 		transitionDuration: "0.2s",
 		transitionProperty: "box-shadow background border-color color",
+		letterSpacing: "0.05em",
 	},
 	variants: {
 		outline: {
@@ -47,16 +60,34 @@ export const Button: ComponentStyleConfig = {
 				color: "brand.purple.900",
 			},
 		},
+		chevron: {
+			...inline,
+			color: "white",
+			fontWeight: "bold",
+			textTransform: "uppercase",
+			px: 2,
+			_active: { background: "transparent", color: "white" },
+		},
 		inline: {
-			fontFamily: "body",
-			fontWeight: "normal",
+			...inline,
+			color: "whiteAlpha.600",
+			_hover: {
+				color: "white",
+			},
+			_focus: {
+				color: "white",
+			},
+			_active: {
+				background: "white",
+				borderColor: "transparent",
+				color: "brand.purple.900",
+			},
+		},
+		"inline-gradient": {
+			...inline,
 			background: `linear-gradient(${gradients.inline})`,
 			backgroundClip: "text",
-			verticalAlign: "baseline",
-			textTransform: "none",
-			height: "auto",
-			paddingBottom: 2,
-			paddingTop: 1,
+
 			textShadow: `0px 0px 2px linear-gradient(${gradients.inline})`,
 
 			_hover: {

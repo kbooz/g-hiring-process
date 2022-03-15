@@ -48,7 +48,7 @@ export function WorkProof({ title, margin, type, isLast, nfts }: Props) {
 					position: "absolute",
 				}}
 			>
-				<Button onClick={toggleOpen}>
+				<Button variant="chevron" onClick={toggleOpen} ml={-2}>
 					{title}
 					<MotionCenter
 						ml={2}
