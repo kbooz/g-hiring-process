@@ -31,17 +31,6 @@ export function ProfileTemplate({ profile }: { profile: Profile }) {
 			/>
 			<VStack alignItems="stretch" spacing="0">
 				<HStack spacing="0" gap={6} alignItems="flex-start">
-					<Image
-						display={["block", null, null, "none"]}
-						w="full"
-						maxW={210}
-						sx={{ aspectRatio: "210/260" }}
-						borderRadius="3xl"
-						background="blue.500"
-						position={["unset", null, "sticky"]}
-						top={6}
-						src={profile.avatar}
-					/>
 					<ProfileBio profile={profile} />
 				</HStack>
 				<ProfileAbout about={profile.about}></ProfileAbout>
