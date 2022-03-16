@@ -1,4 +1,4 @@
-import { Box, HStack, Image, VStack } from "@chakra-ui/react";
+import { Image, VStack } from "@chakra-ui/react";
 
 import { MotionBox } from "@/components/atoms/motion";
 import { Profile } from "@/types/profile";
