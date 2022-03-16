@@ -2,6 +2,7 @@ import { Box, Button, HStack, Icon, Text } from "@chakra-ui/react";
 import { FaChevronDown } from "react-icons/fa";
 import { useToggle } from "react-use";
 
+import { GateIcon } from "@/components/atoms/icons";
 import { MotionBox, MotionCenter } from "@/components/atoms/motion";
 import NFTBadge from "@/components/molecules/nft-badge";
 import type { WorkProof as WorkProofI } from "@/types/profile";
@@ -53,7 +54,7 @@ export function WorkProof({ title, margin, type, isLast, nfts }: Props) {
 							closed: { rotate: 180 },
 						}}
 					>
-						<Icon as={FaChevronDown} />
+						<GateIcon type="chevron-down" />
 					</MotionCenter>
 				</Button>
 				<Button variant="inline">See All</Button>

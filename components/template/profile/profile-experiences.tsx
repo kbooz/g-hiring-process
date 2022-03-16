@@ -1,6 +1,8 @@
 import { Box, Button, HStack, Icon, Text, VStack } from "@chakra-ui/react";
 import { AiOutlinePlus } from "react-icons/ai";
 
+import { GateIcon } from "@/components/atoms/icons";
+
 import { ExperienceSeciton } from "./experience/experience-section";
 import { useProfile } from "./profile.context";
 
@@ -14,7 +16,7 @@ export function ProfileExperiences() {
 					Experience
 				</Text>
 				<Button variant="outline-icon" p={1}>
-					<Icon w="1.25rem" h="1.25rem" as={AiOutlinePlus} />
+					<GateIcon type="add" w="1.25rem" h="1.25rem" />
 				</Button>
 			</HStack>
 			<VStack spacing="0" gap={10} alignItems="stretch">

@@ -5,7 +5,8 @@ import {
 	InputGroupProps,
 	InputRightElement,
 } from "@chakra-ui/react";
-import { FaSearch } from "react-icons/fa";
+
+import { GateIcon } from "@/components/atoms/icons/";
 
 function Search(props: InputGroupProps) {
 	return (
@@ -20,7 +21,7 @@ function Search(props: InputGroupProps) {
 				lineHeight="0.9"
 			/>
 			<InputRightElement>
-				<Icon as={FaSearch} color="white" />
+				<GateIcon type="search" color="white" />
 			</InputRightElement>
 		</InputGroup>
 	);

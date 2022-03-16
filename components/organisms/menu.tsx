@@ -15,7 +15,7 @@ import {
 import { AiFillCaretDown } from "react-icons/ai";
 import { IoNotifications } from "react-icons/io5";
 
-import Logo from "@/components/atoms/icons/logo";
+import { GateIcon } from "@/components/atoms/icons/";
 import { shortenWalletAddress } from "@/utils/text";
 
 import Search from "../molecules/search";
@@ -30,7 +30,7 @@ const Manu = forwardRef<BoxProps, "nav">(function Manu(props, ref) {
 				borderBottomColor="whiteAlpha.100"
 			>
 				<HStack gap={4} alignItems="center" w="40%">
-					<Logo w={10} h={10} />
+					<GateIcon type="logo" w={10} h={10} />
 					<Search display={["none", null, "flex"]} />
 				</HStack>
 				<HStack gap={4} alignItems="center" display={["none", null, "flex"]}>
@@ -38,7 +38,7 @@ const Manu = forwardRef<BoxProps, "nav">(function Manu(props, ref) {
 						<Text key={s}>{s}</Text>
 					))}
 					<Button variant="outline-icon" p={2}>
-						<Icon as={IoNotifications} height="1rem" width="1rem" />
+						<GateIcon type="bell" height="1rem" width="1rem" />
 					</Button>
 					<ChakraMenu>
 						<MenuButton
@@ -46,8 +46,8 @@ const Manu = forwardRef<BoxProps, "nav">(function Manu(props, ref) {
 							variant="outline-active"
 							fontSize="sm"
 							rightIcon={
-								<Icon
-									as={AiFillCaretDown}
+								<GateIcon
+									type="caret-down"
 									width="0.75rem"
 									height="0.75rem"
 									color="brand.pink.500"

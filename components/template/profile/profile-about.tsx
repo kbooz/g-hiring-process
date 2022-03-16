@@ -2,6 +2,7 @@ import { Box, Button, HStack, Icon, Text } from "@chakra-ui/react";
 import { FaPen } from "react-icons/fa";
 
 import { CropText } from "@/components/atoms/crop-text";
+import { GateIcon } from "@/components/atoms/icons";
 
 import { useProfile } from "./profile.context";
 
@@ -15,7 +16,7 @@ export function ProfileAbout() {
 					About
 				</Text>
 				<Button variant="outline-icon">
-					<Icon w=".75rem" h=".75rem" as={FaPen} />
+					<GateIcon type="edit" w=".75rem" h=".75rem" />
 				</Button>
 			</HStack>
 			<CropText>{about}</CropText>

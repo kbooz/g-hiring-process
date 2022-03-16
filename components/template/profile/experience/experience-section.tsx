@@ -11,6 +11,7 @@ import {
 import { FaPen } from "react-icons/fa";
 
 import { CropText } from "@/components/atoms/crop-text";
+import { GateIcon } from "@/components/atoms/icons";
 import { ProfileExperience } from "@/types/profile";
 
 import { WorkProof } from "./work-proof";
@@ -35,7 +36,7 @@ export function ExperienceSeciton({
 					</Text>
 				</HStack>
 				<Button variant="outline-icon">
-					<Icon w=".75rem" h=".75rem" as={FaPen} />
+					<GateIcon type="edit" w=".75rem" h=".75rem" />
 				</Button>
 			</HStack>
 			<Box

@@ -1,4 +1,4 @@
-import { SocialIconType } from "@/utils/icon";
+import { DefaultIcon } from "@/components/atoms/icons";
 
 import { DAO } from "./dao";
 import { NFT } from "./nft";
@@ -21,7 +21,7 @@ export type ProfileExperience = {
 
 export type ProfileLink = {
 	href: string;
-	icon?: SocialIconType;
+	icon?: DefaultIcon;
 };
 
 export type Profile = {

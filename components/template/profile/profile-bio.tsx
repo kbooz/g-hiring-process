@@ -4,7 +4,6 @@ import {
 	Box,
 	Button,
 	HStack,
-	Icon,
 	Image,
 	Menu,
 	MenuButton,
@@ -15,17 +14,17 @@ import {
 	Link,
 } from "@chakra-ui/react";
 import { FaPen } from "react-icons/fa";
-import { IoShareSocial } from "react-icons/io5";
 import { useCopyToClipboard } from "react-use";
 
+import { GateIcon } from "@/components/atoms/icons";
 import { Ethereum } from "@/components/atoms/icons/ethereum";
 import { CopyButton } from "@/components/molecules/copy-button";
 import { Profile } from "@/types/profile";
-import { socialIcons } from "@/utils/icon";
 import { shortenWalletAddress } from "@/utils/text";
 import { prependProtocol } from "@/utils/url";
 
 import { useProfile } from "./profile.context";
+import { socialIcons } from "./utils";
 
 export function ProfileBio() {
 	const { avatar, name, username, address, bio, url, links } = useProfile();
@@ -80,13 +79,18 @@ export function ProfileBio() {
 					</Box>
 					<HStack>
 						<Text>
-							<Icon w="1rem" h="1rem" as={Ethereum} verticalAlign="baseline" />{" "}
+							<GateIcon
+								type="ethereum"
+								w="1rem"
+								h="1rem"
+								verticalAlign="baseline"
+							/>{" "}
 							{shortenWalletAddress(address, 4, 5)}
 						</Text>
 						<CopyButton text={address} />
 						<Menu>
 							<MenuButton as={Button} variant="outline-icon">
-								<Icon w=".75rem" h=".75rem" as={FaPen} />
+								<GateIcon type="edit" w=".75rem" h=".75rem" />
 							</MenuButton>
 							<MenuList>
 								<MenuItem>Edit Profile</MenuItem>
@@ -113,7 +117,9 @@ export function ProfileBio() {
 								variant="outline-icon"
 								aria-label={icon ? socialIcons[icon].name : ""}
 							>
-								{icon && <Icon w="1rem" h="1rem" as={socialIcons[icon].icon} />}
+								{icon && (
+									<GateIcon type={socialIcons[icon].icon} w="1rem" h="1rem" />
+								)}
 							</Button>
 						</NextLink>
 					))}
@@ -123,7 +129,7 @@ export function ProfileBio() {
 						aria-label="Copy to share"
 						onClick={onShareLink}
 					>
-						<Icon w="1rem" h="1rem" as={IoShareSocial} />
+						<GateIcon type="share" w="1rem" h="1rem" />
 					</Button>
 				</HStack>
 			</Box>

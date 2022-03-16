@@ -1,6 +1,6 @@
 import { Icon, type IconProps, useToken } from "@chakra-ui/react";
 
-function Logo(props: IconProps) {
+export function Logo(props: IconProps) {
 	const [blue, pink, purple] = useToken("colors", [
 		"brand.blue.500",
 		"brand.pink.500",
@@ -18,4 +18,3 @@ function Logo(props: IconProps) {
 		</Icon>
 	);
 }
-export default Logo;

@@ -3,7 +3,6 @@ import {
 	Box,
 	Button,
 	Flex,
-	HStack,
 	Icon,
 	Link,
 	List,
@@ -11,8 +10,9 @@ import {
 	Spacer,
 	Text,
 } from "@chakra-ui/react";
-import { AiOutlinePlus } from "react-icons/ai";
 import { HiLocationMarker } from "react-icons/hi";
+
+import { GateIcon } from "@/components/atoms/icons";
 
 type FilterButton = { label: string; total?: number };
 
@@ -52,7 +52,7 @@ export function ProfileSidebar() {
 					<Text>Time Zone</Text>
 					<Spacer />
 					<Button p={1} variant="outline-icon">
-						<Icon w="1rem" h="1rem" as={HiLocationMarker} />
+						<GateIcon type="location" w="1rem" h="1rem" />
 					</Button>
 				</Flex>
 
@@ -73,10 +73,10 @@ export function ProfileSidebar() {
 						<Text>Skills</Text>
 						<Spacer />
 						<Button p={1} variant="outline-icon">
-							<Icon w="1rem" h="1rem" as={HiLocationMarker} />
+							<GateIcon type="location" w="1rem" h="1rem" />
 						</Button>
 						<Button p={1} variant="outline-icon">
-							<Icon w="1.25rem" h="1.25rem" as={AiOutlinePlus} />
+							<GateIcon type="add" w="1.25rem" h="1.25rem" />
 						</Button>
 					</Flex>
 					<Flex gap={2} wrap="wrap">
@@ -125,10 +125,10 @@ export function ProfileSidebar() {
 					<Text>Languages</Text>
 					<Spacer />
 					<Button p={1} variant="outline-icon">
-						<Icon w="1rem" h="1rem" as={HiLocationMarker} />
+						<GateIcon type="location" w="1rem" h="1rem" />
 					</Button>
 					<Button p={1} variant="outline-icon">
-						<Icon w="1.25rem" h="1.25rem" as={AiOutlinePlus} />
+						<GateIcon type="add" w="1.25rem" h="1.25rem" />
 					</Button>
 				</Flex>
 				<Flex gap={2} wrap="wrap">
