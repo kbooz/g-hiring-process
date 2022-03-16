@@ -1,15 +1,12 @@
 import { Box, Button, HStack, Icon, Text, VStack } from "@chakra-ui/react";
 import { AiOutlinePlus } from "react-icons/ai";
 
-import { ProfileExperience } from "@/types/profile";
-
 import { ExperienceSeciton } from "./experience/experience-section";
+import { useProfile } from "./profile.context";
 
-export function ProfileExperiences({
-	experiences,
-}: {
-	experiences: ProfileExperience[];
-}) {
+export function ProfileExperiences() {
+	const { experiences } = useProfile();
+
 	return (
 		<Box as="section" layerStyle="profileSection" borderBottom="0">
 			<HStack justifyContent="space-between" mb={30}>

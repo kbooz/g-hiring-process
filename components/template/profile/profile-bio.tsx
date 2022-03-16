@@ -25,7 +25,10 @@ import { socialIcons } from "@/utils/icon";
 import { shortenWalletAddress } from "@/utils/text";
 import { prependProtocol } from "@/utils/url";
 
-export function ProfileBio({ profile }: { profile: Profile }) {
+import { useProfile } from "./profile.context";
+
+export function ProfileBio() {
+	const { avatar, name, username, address, bio, url, links } = useProfile();
 	const [_, copyToClipboard] = useCopyToClipboard();
 
 	const onShareLink = async () => {
@@ -55,7 +58,7 @@ export function ProfileBio({ profile }: { profile: Profile }) {
 				sx={{ aspectRatio: "210/260" }}
 				borderRadius="3xl"
 				background="blue.500"
-				src={profile.avatar}
+				src={avatar}
 			/>
 			<Box width="full">
 				<Stack
@@ -65,22 +68,22 @@ export function ProfileBio({ profile }: { profile: Profile }) {
 				>
 					<Box>
 						<Text textStyle="sectionTitle" fontSize={36}>
-							{profile.name}
+							{name}
 						</Text>
 						<Text
 							textStyle="secondaryGradient"
 							fontWeight="semibold"
 							lineHeight="1"
 						>
-							{profile.username}
+							{username}
 						</Text>
 					</Box>
 					<HStack>
 						<Text>
 							<Icon w="1rem" h="1rem" as={Ethereum} verticalAlign="baseline" />{" "}
-							{shortenWalletAddress(profile.address, 4, 5)}
+							{shortenWalletAddress(address, 4, 5)}
 						</Text>
-						<CopyButton text={profile.address} />
+						<CopyButton text={address} />
 						<Menu>
 							<MenuButton as={Button} variant="outline-icon">
 								<Icon w=".75rem" h=".75rem" as={FaPen} />
@@ -93,15 +96,15 @@ export function ProfileBio({ profile }: { profile: Profile }) {
 					</HStack>
 				</Stack>
 				<Text whiteSpace="pre-line" mt={5} color="whiteAlpha.600">
-					{profile.bio}
+					{bio}
 				</Text>
-				<NextLink passHref href={prependProtocol(profile.url)}>
+				<NextLink passHref href={prependProtocol(url)}>
 					<Link target="_blank" mt={7} display="inline-block">
-						{profile.url}
+						{url}
 					</Link>
 				</NextLink>
 				<HStack mt={7}>
-					{profile.links.map(({ href, icon }) => (
+					{links.map(({ href, icon }) => (
 						<NextLink key={icon} href={href} passHref>
 							<Button
 								as={Link}

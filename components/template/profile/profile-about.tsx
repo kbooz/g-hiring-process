@@ -3,7 +3,11 @@ import { FaPen } from "react-icons/fa";
 
 import { CropText } from "@/components/atoms/crop-text";
 
-export function ProfileAbout({ about }: { about: string }) {
+import { useProfile } from "./profile.context";
+
+export function ProfileAbout() {
+	const { about } = useProfile();
+
 	return (
 		<Box as="section" layerStyle="profileSection" pb={14}>
 			<HStack justifyContent="space-between" mb={30}>

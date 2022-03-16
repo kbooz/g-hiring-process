@@ -33,5 +33,5 @@ export type Profile = {
 	bio: string;
 	links: ProfileLink[];
 	about: string;
-	experience: ProfileExperience[];
+	experiences: ProfileExperience[];
 };
