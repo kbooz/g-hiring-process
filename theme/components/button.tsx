@@ -1,35 +1,7 @@
-import { type CSSWithMultiValues } from "@chakra-ui/react";
 import type { ComponentStyleConfig } from "@chakra-ui/theme";
 
-import { ChakraStylesheet } from "@/types/chakra";
-
-import colors from "../colors";
 import gradients from "../reusables/gradients";
-
-/* Styles */
-
-const outline: ChakraStylesheet = {
-	height: "auto",
-	border: "1px",
-	borderColor: "whiteAlpha.200",
-};
-
-// ref: https://codesandbox.io/s/chakra-ui-theme-extension-w5u2n?file=/src/theme/Button/index.js
-const outlineHover: CSSWithMultiValues = {
-	boxShadow: "main",
-	borderColor: "transparent",
-	background: `linear-gradient(${colors.brand.purple["900"]}, ${colors.brand.purple["900"]}) padding-box, linear-gradient(${gradients.button}) border-box`,
-};
-
-const inline: ChakraStylesheet = {
-	fontFamily: "body",
-	fontWeight: "normal",
-	verticalAlign: "baseline",
-	textTransform: "none",
-	height: "auto",
-	paddingBottom: 2,
-	paddingTop: 1,
-};
+import { outline, outlineHover, inline } from "./button.styles";
 
 // https://chakra-ui.com/docs/styled-system/theming/component-style#styling-single-part-components
 export const Button: ComponentStyleConfig = {
@@ -46,8 +18,6 @@ export const Button: ComponentStyleConfig = {
 		outline: {
 			py: 2,
 			px: 4,
-			width: "auto",
-			minWidth: "auto",
 			...outline,
 			_hover: outlineHover,
 			_focus: outlineHover,
@@ -55,15 +25,17 @@ export const Button: ComponentStyleConfig = {
 		"outline-active": {
 			py: 2,
 			px: 4,
-			width: "auto",
-			minWidth: "auto",
 			...outline,
 			...outlineHover,
 		},
 		"outline-icon": {
-			p: 2,
-			minWidth: "auto",
 			...outline,
+			display: "inline-flex",
+			alignItems: "center",
+			justifyContent: "center",
+			p: 2,
+			height: 7,
+			width: 7,
 			_hover: outlineHover,
 			_focus: outlineHover,
 			_active: {
@@ -73,7 +45,6 @@ export const Button: ComponentStyleConfig = {
 			},
 		},
 		chevron: {
-			minWidth: 0,
 			...inline,
 			color: "white",
 			fontWeight: "bold",
@@ -82,7 +53,6 @@ export const Button: ComponentStyleConfig = {
 			_active: { background: "transparent", color: "white" },
 		},
 		inline: {
-			minWidth: 0,
 			...inline,
 			color: "whiteAlpha.600",
 			_hover: {
@@ -98,7 +68,6 @@ export const Button: ComponentStyleConfig = {
 			},
 		},
 		"inline-gradient": {
-			minWidth: 0,
 			...inline,
 			background: `linear-gradient(${gradients.inline})`,
 			backgroundClip: "text",

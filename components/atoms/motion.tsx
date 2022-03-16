@@ -6,12 +6,14 @@ import {
 	type BoxProps,
 	type TextProps,
 	HStack,
-	StackProps,
+	type StackProps,
 	VStack,
 	Stack,
-	IconProps,
+	type IconProps,
 	Icon,
 	Center,
+	Flex,
+	type FlexProps,
 } from "@chakra-ui/react";
 import { CustomDomComponent, motion } from "framer-motion";
 
@@ -26,6 +28,8 @@ export const MotionButtonGroup: MotionChakra<ButtonGroupProps> =
 
 export const MotionBox: MotionChakra<BoxProps> = motion(Box);
 export const MotionCenter: MotionChakra<BoxProps> = motion(Center);
+
+export const MotionFlex: MotionChakra<FlexProps> = motion(Flex);
 
 export const MotionStack: MotionChakra<StackProps> = motion(Stack);
 export const MotionHStack: MotionChakra<StackProps> = motion(HStack);

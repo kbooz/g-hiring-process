@@ -37,8 +37,8 @@ const Manu = forwardRef<BoxProps, "nav">(function Manu(props, ref) {
 					{["DAOs", "Gates", "People", "Join Discord"].map((s) => (
 						<Text key={s}>{s}</Text>
 					))}
-					<Button variant="outline-icon" p={2}>
-						<GateIcon type="bell" height="1rem" width="1rem" />
+					<Button variant="outline-icon" width="auto" height="auto">
+						<GateIcon type="bell" />
 					</Button>
 					<ChakraMenu>
 						<MenuButton

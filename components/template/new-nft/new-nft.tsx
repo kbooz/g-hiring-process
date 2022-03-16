@@ -1,10 +1,13 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useLayoutEffect } from "react";
 
 import { Box, Button, HStack, Img, Text } from "@chakra-ui/react";
 
-import { MotionBox, MotionButtonGroup } from "@/components/atoms/motion";
+import {
+	MotionBox,
+	MotionButtonGroup,
+	MotionFlex,
+} from "@/components/atoms/motion";
 import NFTBadge from "@/components/molecules/nft-badge";
 import { NFTwithDAO } from "@/types/nft";
 
@@ -29,18 +32,17 @@ export function NewNFTTemplate({ nft }: Props) {
 			<Box position="fixed" zIndex={1} inset={0}>
 				<Fireworks />
 			</Box>
-			<MotionBox
+			<MotionFlex
 				as="main"
+				direction="column"
+				position="relative"
+				align="center"
 				py={8}
 				px={6}
-				display="flex"
-				flexFlow="column"
-				alignItems="center"
 				gap={[12, 8]}
 				initial="hidden"
 				animate="show"
 				variants={container}
-				position="relative"
 				zIndex={2}
 			>
 				<MotionBox variants={textAnimation} textAlign="center">
@@ -91,7 +93,7 @@ export function NewNFTTemplate({ nft }: Props) {
 						Close
 					</Button>
 				</MotionButtonGroup>
-			</MotionBox>
+			</MotionFlex>
 		</>
 	);
 }
