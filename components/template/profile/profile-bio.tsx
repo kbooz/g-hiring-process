@@ -17,13 +17,10 @@ import {
 	StackProps,
 	Flex,
 } from "@chakra-ui/react";
-import { FaPen } from "react-icons/fa";
 import { useCopyToClipboard } from "react-use";
 
 import { GateIcon } from "@/components/atoms/icons";
-import { Ethereum } from "@/components/atoms/icons/ethereum";
 import { CopyButton } from "@/components/molecules/copy-button";
-import { Profile } from "@/types/profile";
 import { shortenWalletAddress } from "@/utils/text";
 import { prependProtocol } from "@/utils/url";
 
@@ -73,7 +70,7 @@ export const ProfileBio = forwardRef<StackProps, "div">(function ProfileBio(
 					alignItems={"flex-start"}
 				>
 					<Box>
-						<Text textStyle="sectionTitle" fontSize={36}>
+						<Text textStyle="sectionTitle" fontSize={36} lineHeight="1" mb={3}>
 							{name}
 						</Text>
 						<Text
@@ -84,7 +81,7 @@ export const ProfileBio = forwardRef<StackProps, "div">(function ProfileBio(
 							{username}
 						</Text>
 					</Box>
-					<HStack>
+					<Flex gap={3} align="center">
 						<Text>
 							<GateIcon type="ethereum" verticalAlign="baseline" />{" "}
 							{shortenWalletAddress(address, 4, 5)}
@@ -104,7 +101,7 @@ export const ProfileBio = forwardRef<StackProps, "div">(function ProfileBio(
 								<MenuItem>Manage Wallets</MenuItem>
 							</MenuList>
 						</Menu>
-					</HStack>
+					</Flex>
 				</Stack>
 				<Text whiteSpace="pre-line" mt={5} color="whiteAlpha.600">
 					{bio}
@@ -114,7 +111,7 @@ export const ProfileBio = forwardRef<StackProps, "div">(function ProfileBio(
 						{url}
 					</Link>
 				</NextLink>
-				<HStack mt={7}>
+				<Flex gap={2} mt={7} justifyContent={{}}>
 					{links.map(({ href, icon }) => (
 						<NextLink key={icon} href={href} passHref>
 							<IconButton
@@ -134,7 +131,7 @@ export const ProfileBio = forwardRef<StackProps, "div">(function ProfileBio(
 						icon={<GateIcon type="share" />}
 						aria-label="share profile"
 					/>
-				</HStack>
+				</Flex>
 			</Box>
 		</Flex>
 	);

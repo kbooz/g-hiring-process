@@ -33,6 +33,11 @@ const experience = (): ProfileExperience => ({
 			nfts: [nft()],
 		},
 		{
+			title: "Large Credentials",
+			type: "nft",
+			nfts: [nft(), nft(), nft(), nft(), nft()],
+		},
+		{
 			title: "Other Credentials",
 			type: "nft",
 			nfts: [nft(), nft(), nft()],

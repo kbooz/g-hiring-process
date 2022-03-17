@@ -1,9 +1,9 @@
-import { Box, Button, HStack, Icon, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, HStack, Icon, Text } from "@chakra-ui/react";
 import { FaChevronDown } from "react-icons/fa";
 import { useToggle } from "react-use";
 
 import { GateIcon } from "@/components/atoms/icons";
-import { MotionBox, MotionCenter } from "@/components/atoms/motion";
+import { MotionBox, MotionCenter, MotionFlex } from "@/components/atoms/motion";
 import NFTBadge from "@/components/molecules/nft-badge";
 import type { WorkProof as WorkProofI } from "@/types/profile";
 
@@ -63,22 +63,37 @@ export function WorkProof({ title, margin, type, isLast, nfts }: Props) {
 				>
 					{title}
 				</Button>
-				<Button variant="inline">See All</Button>
+				{nfts.length > 3 && <Button variant="inline">See All</Button>}
 			</HStack>
-			<MotionBox
+			<MotionFlex
 				transition={{ type: "tween" }}
 				variants={{
 					open: { height: "auto", opacity: 1 },
 					closed: { height: 0, opacity: 0 },
 				}}
-				overflow="hidden"
+				overflowY="hidden"
+				overflowX={{ base: "visible", md: "hidden" }}
+				direction="row"
+				gap={3}
+				ml={{ base: 0, md: margin }}
+				py={6}
+				px={{ base: margin, md: 0 }}
+				align="flex-start"
+				wrap={{ base: "nowrap", md: "wrap" }}
+				width={{ base: `calc(100% + 1rem)`, md: "100%" }}
+				scrollSnapType="x mandatory"
+				scrollSnapAlign="start"
 			>
-				<HStack ml={margin} py={6}>
-					{nfts.map((nft) => (
-						<NFTBadge key={nft.name} w={200} isSmall {...nft} />
-					))}
-				</HStack>
-			</MotionBox>
+				{nfts.map((nft) => (
+					<NFTBadge
+						key={nft.name}
+						w={200}
+						isSmall
+						{...nft}
+						minW={{ base: 200, md: "auto" }}
+					/>
+				))}
+			</MotionFlex>
 		</MotionBox>
 	);
 }
