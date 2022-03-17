@@ -7,11 +7,8 @@ import gradients from "../shared/gradients";
 
 /* Styles */
 export const outline: ChakraStylesheet = {
-	height: "auto",
 	border: "1px",
 	borderColor: "whiteAlpha.200",
-	width: "auto",
-	minWidth: "auto",
 };
 // ref: https://codesandbox.io/s/chakra-ui-theme-extension-w5u2n?file=/src/theme/Button/index.js
 export const outlineHover: CSSWithMultiValues = {
@@ -24,8 +21,6 @@ export const inline: ChakraStylesheet = {
 	fontWeight: "normal",
 	verticalAlign: "baseline",
 	textTransform: "none",
-	height: "auto",
 	paddingBottom: 2,
 	paddingTop: 1,
-	minWidth: "auto",
 };

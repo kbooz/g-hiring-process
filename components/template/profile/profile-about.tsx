@@ -17,7 +17,7 @@ export function ProfileAbout() {
 				</Text>
 				<IconButton
 					variant="outline-icon"
-					size="sm"
+					size="xs"
 					icon={<GateIcon type="add" w="1.25rem" h="1.25rem" />}
 					aria-label="add new experience"
 				/>

@@ -26,7 +26,7 @@ export function CopyButton({ text, ...props }: Props) {
 	return (
 		<IconButton
 			variant="outline-icon"
-			size="sm"
+			size="xs"
 			icon={
 				<GateIcon
 					type="copy"

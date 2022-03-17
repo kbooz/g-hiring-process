@@ -88,7 +88,7 @@ export function ProfileBio() {
 							<MenuButton
 								as={IconButton}
 								type="button"
-								size="sm"
+								size="xs"
 								variant="outline-icon"
 								icon={<GateIcon type="edit" w=".75rem" h=".75rem" />}
 								aria-label="open profile menu"

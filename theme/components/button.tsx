@@ -37,8 +37,7 @@ export const Button: ComponentStyleConfig = {
 			display: "inline-flex",
 			alignItems: "center",
 			justifyContent: "center",
-			height: 7,
-			width: 7,
+
 			_hover: outlineHover,
 			_focus: outlineHover,
 			_active: {
@@ -113,6 +112,17 @@ export const Button: ComponentStyleConfig = {
 			},
 		},
 	},
+	sizes: {
+		xs: {
+			minHeight: 7,
+			maxHeight: 7,
+			height: 7,
+			minWidth: 7,
+			maxWidth: 7,
+			width: 7,
+		},
+	},
+
 	defaultProps: {
 		variant: "outline",
 	},

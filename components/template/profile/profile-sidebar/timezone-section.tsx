@@ -14,12 +14,14 @@ import { GateIcon } from "@/components/atoms/icons";
 export function TimeZoneSection() {
 	return (
 		<Box as="section" layerStyle="profileSection" pt={0}>
-			<Flex>
-				<Text>Time Zone</Text>
+			<Flex align="center">
+				<Text fontSize="xs" color="whiteAlpha.600">
+					Time Zone
+				</Text>
 				<Spacer />
 				<IconButton
 					variant="outline-icon"
-					size="sm"
+					size="xs"
 					icon={<GateIcon type="location" />}
 					aria-label="change your time zone"
 				/>

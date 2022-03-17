@@ -1,6 +1,8 @@
 import {
+	Avatar,
 	Box,
 	Button,
+	Flex,
 	HStack,
 	Icon,
 	IconButton,
@@ -29,20 +31,20 @@ export function ExperienceSeciton({
 	const margin = 5;
 	return (
 		<Box alignItems="stretch" pl={margin}>
-			<HStack ml={-margin} alignItems="center" justifyContent="space-between">
-				<HStack alignItems="center">
-					<Img rounded="full" w={10} h={10} src={dao.image} />
+			<Flex ml={-margin} alignItems="center" justifyContent="space-between">
+				<Flex alignItems="center" gap={2}>
+					<Avatar rounded="full" w={10} h={10} src={dao.image} />
 					<Text fontSize="xl" textStyle="sectionTitle">
 						{role}
 					</Text>
-				</HStack>
+				</Flex>
 				<IconButton
 					variant="outline-icon"
-					size="sm"
+					size="xs"
 					icon={<GateIcon type="edit" w=".75rem" h=".75rem" />}
 					aria-label={`edit your experience at ${dao.name}`}
 				/>
-			</HStack>
+			</Flex>
 			<Box
 				pl={margin + 2}
 				borderLeft="1px"
