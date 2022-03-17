@@ -16,10 +16,14 @@ import { GateIcon } from "@/components/atoms/icons";
 import { features } from "./mock";
 import { TimeZoneSection } from "./timezone-section";
 
-export function ProfileSidebar() {
+type Props = {
+	bioHeight: number;
+};
+
+export function ProfileSidebar({ bioHeight }: Props) {
 	return (
 		<Box>
-			<TimeZoneSection />
+			<TimeZoneSection minHeight={bioHeight} />
 			<Box as="section" layerStyle="profileSection">
 				<Box>
 					<Flex gap={2} align="flex-start" mb="4">

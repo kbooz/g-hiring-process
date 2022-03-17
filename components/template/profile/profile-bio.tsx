@@ -13,6 +13,8 @@ import {
 	Text,
 	Link,
 	IconButton,
+	forwardRef,
+	StackProps,
 } from "@chakra-ui/react";
 import { FaPen } from "react-icons/fa";
 import { useCopyToClipboard } from "react-use";
@@ -27,7 +29,10 @@ import { prependProtocol } from "@/utils/url";
 import { useProfile } from "./profile.context";
 import { socialIcons } from "./utils";
 
-export function ProfileBio() {
+export const ProfileBio = forwardRef<StackProps, "div">(function ProfileBio(
+	_props,
+	ref
+) {
 	const { avatar, name, username, address, bio, url, links } = useProfile();
 	const [_, copyToClipboard] = useCopyToClipboard();
 
@@ -50,6 +55,7 @@ export function ProfileBio() {
 			width="full"
 			spacing={0}
 			gap={6}
+			ref={ref}
 		>
 			<Image
 				display={["block", null, null, "none"]}
@@ -132,4 +138,4 @@ export function ProfileBio() {
 			</Box>
 		</Stack>
 	);
-}
+});
