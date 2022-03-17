@@ -3,7 +3,7 @@ import { type CSSWithMultiValues } from "@chakra-ui/react";
 import { ChakraStylesheet } from "@/types/chakra";
 
 import colors from "../colors";
-import gradients from "../reusables/gradients";
+import gradients from "../shared/gradients";
 
 /* Styles */
 export const outline: ChakraStylesheet = {

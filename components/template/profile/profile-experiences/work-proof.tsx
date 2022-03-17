@@ -44,18 +44,24 @@ export function WorkProof({ title, margin, type, isLast, nfts }: Props) {
 					position: "absolute",
 				}}
 			>
-				<Button variant="chevron" onClick={toggleOpen}>
+				<Button
+					variant="chevron"
+					onClick={toggleOpen}
+					ml={-2}
+					rightIcon={
+						<MotionCenter
+							ml={2}
+							transition={{ type: "tween" }}
+							variants={{
+								open: { rotate: 0 },
+								closed: { rotate: 180 },
+							}}
+						>
+							<GateIcon type="chevron-down" />
+						</MotionCenter>
+					}
+				>
 					{title}
-					<MotionCenter
-						ml={2}
-						transition={{ type: "tween" }}
-						variants={{
-							open: { rotate: 0 },
-							closed: { rotate: 180 },
-						}}
-					>
-						<GateIcon type="chevron-down" />
-					</MotionCenter>
 				</Button>
 				<Button variant="inline">See All</Button>
 			</HStack>

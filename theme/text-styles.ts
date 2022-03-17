@@ -1,6 +1,6 @@
 import { SystemStyleObjectRecord } from "@chakra-ui/react";
 
-import gradients from "./reusables/gradients";
+import gradients from "./shared/gradients";
 
 const textStyles: SystemStyleObjectRecord = {
 	primaryGradient: {

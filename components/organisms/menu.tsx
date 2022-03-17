@@ -11,7 +11,9 @@ import {
 	MenuButton,
 	MenuList,
 	MenuItem,
+	IconButton,
 } from "@chakra-ui/react";
+import { IconType } from "react-icons";
 import { AiFillCaretDown } from "react-icons/ai";
 import { IoNotifications } from "react-icons/io5";
 
@@ -37,9 +39,13 @@ const Manu = forwardRef<BoxProps, "nav">(function Manu(props, ref) {
 					{["DAOs", "Gates", "People", "Join Discord"].map((s) => (
 						<Text key={s}>{s}</Text>
 					))}
-					<Button variant="outline-icon" width="auto" height="auto">
-						<GateIcon type="bell" />
-					</Button>
+
+					<IconButton
+						variant="outline-icon"
+						aria-label="open notifications"
+						icon={<GateIcon type="bell" />}
+					/>
+
 					<ChakraMenu>
 						<MenuButton
 							as={Button}

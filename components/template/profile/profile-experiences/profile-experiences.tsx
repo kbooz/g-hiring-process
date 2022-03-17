@@ -1,10 +1,17 @@
-import { Box, Button, HStack, Icon, Text, VStack } from "@chakra-ui/react";
-import { AiOutlinePlus } from "react-icons/ai";
+import {
+	Box,
+	Button,
+	HStack,
+	Icon,
+	IconButton,
+	Text,
+	VStack,
+} from "@chakra-ui/react";
 
 import { GateIcon } from "@/components/atoms/icons";
 
-import { ExperienceSeciton } from "./experience/experience-section";
-import { useProfile } from "./profile.context";
+import { useProfile } from "../profile.context";
+import { ExperienceSeciton } from "./experience-section";
 
 export function ProfileExperiences() {
 	const { experiences } = useProfile();
@@ -15,9 +22,12 @@ export function ProfileExperiences() {
 				<Text textStyle="sectionTitle" fontSize="3xl">
 					Experience
 				</Text>
-				<Button variant="outline-icon" p={1}>
-					<GateIcon type="add" w="1.25rem" h="1.25rem" />
-				</Button>
+				<IconButton
+					variant="outline-icon"
+					size="sm"
+					icon={<GateIcon type="add" w="1.25rem" h="1.25rem" />}
+					aria-label="add new experience"
+				/>
 			</HStack>
 			<VStack spacing="0" gap={10} alignItems="stretch">
 				{experiences.map((experience) => (

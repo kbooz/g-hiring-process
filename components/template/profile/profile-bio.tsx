@@ -12,6 +12,7 @@ import {
 	Stack,
 	Text,
 	Link,
+	IconButton,
 } from "@chakra-ui/react";
 import { FaPen } from "react-icons/fa";
 import { useCopyToClipboard } from "react-use";
@@ -79,19 +80,19 @@ export function ProfileBio() {
 					</Box>
 					<HStack>
 						<Text>
-							<GateIcon
-								type="ethereum"
-								w="1rem"
-								h="1rem"
-								verticalAlign="baseline"
-							/>{" "}
+							<GateIcon type="ethereum" verticalAlign="baseline" />{" "}
 							{shortenWalletAddress(address, 4, 5)}
 						</Text>
 						<CopyButton text={address} />
 						<Menu>
-							<MenuButton as={Button} variant="outline-icon">
-								<GateIcon type="edit" w=".75rem" h=".75rem" />
-							</MenuButton>
+							<MenuButton
+								as={IconButton}
+								type="button"
+								size="sm"
+								variant="outline-icon"
+								icon={<GateIcon type="edit" w=".75rem" h=".75rem" />}
+								aria-label="open profile menu"
+							/>
 							<MenuList>
 								<MenuItem>Edit Profile</MenuItem>
 								<MenuItem>Manage Wallets</MenuItem>
@@ -110,27 +111,23 @@ export function ProfileBio() {
 				<HStack mt={7}>
 					{links.map(({ href, icon }) => (
 						<NextLink key={icon} href={href} passHref>
-							<Button
+							<IconButton
 								as={Link}
 								target="_blank"
 								rel="noopener noreferrer"
 								variant="outline-icon"
+								icon={icon && <GateIcon type={socialIcons[icon].icon} />}
 								aria-label={icon ? socialIcons[icon].name : ""}
-							>
-								{icon && (
-									<GateIcon type={socialIcons[icon].icon} w="1rem" h="1rem" />
-								)}
-							</Button>
+							/>
 						</NextLink>
 					))}
-					<Button
+					<IconButton
 						type="button"
 						variant="outline-icon"
-						aria-label="Copy to share"
 						onClick={onShareLink}
-					>
-						<GateIcon type="share" w="1rem" h="1rem" />
-					</Button>
+						icon={<GateIcon type="share" />}
+						aria-label="share profile"
+					/>
 				</HStack>
 			</Box>
 		</Stack>

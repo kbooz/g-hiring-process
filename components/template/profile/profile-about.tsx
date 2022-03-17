@@ -1,4 +1,4 @@
-import { Box, Button, HStack, Icon, Text } from "@chakra-ui/react";
+import { Box, Button, HStack, Icon, IconButton, Text } from "@chakra-ui/react";
 import { FaPen } from "react-icons/fa";
 
 import { CropText } from "@/components/atoms/crop-text";
@@ -15,9 +15,12 @@ export function ProfileAbout() {
 				<Text textStyle="sectionTitle" fontSize="3xl">
 					About
 				</Text>
-				<Button variant="outline-icon">
-					<GateIcon type="edit" w=".75rem" h=".75rem" />
-				</Button>
+				<IconButton
+					variant="outline-icon"
+					size="sm"
+					icon={<GateIcon type="add" w="1.25rem" h="1.25rem" />}
+					aria-label="add new experience"
+				/>
 			</HStack>
 			<CropText>{about}</CropText>
 		</Box>

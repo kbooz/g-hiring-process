@@ -1,4 +1,4 @@
-import { Image, VStack } from "@chakra-ui/react";
+import { Flex, Image, VStack } from "@chakra-ui/react";
 
 import { MotionBox } from "@/components/atoms/motion";
 import { Profile } from "@/types/profile";
@@ -32,11 +32,11 @@ export function ProfileTemplate({ profile }: { profile: Profile }) {
 					top={6}
 					src={profile.avatar}
 				/>
-				<VStack alignItems="stretch" spacing="0" width="full">
+				<Flex direction="column" align="stretch">
 					<ProfileBio />
 					<ProfileAbout />
 					<ProfileExperiences />
-				</VStack>
+				</Flex>
 				<ProfileSidebar />
 			</MotionBox>
 		</ProfileContext.Provider>

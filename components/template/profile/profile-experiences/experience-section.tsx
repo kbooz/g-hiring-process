@@ -3,6 +3,7 @@ import {
 	Button,
 	HStack,
 	Icon,
+	IconButton,
 	Image,
 	Img,
 	Text,
@@ -35,9 +36,12 @@ export function ExperienceSeciton({
 						{role}
 					</Text>
 				</HStack>
-				<Button variant="outline-icon">
-					<GateIcon type="edit" w=".75rem" h=".75rem" />
-				</Button>
+				<IconButton
+					variant="outline-icon"
+					size="sm"
+					icon={<GateIcon type="edit" w=".75rem" h=".75rem" />}
+					aria-label={`edit your experience at ${dao.name}`}
+				/>
 			</HStack>
 			<Box
 				pl={margin + 2}
