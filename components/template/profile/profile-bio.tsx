@@ -15,6 +15,7 @@ import {
 	IconButton,
 	forwardRef,
 	StackProps,
+	Flex,
 } from "@chakra-ui/react";
 import { FaPen } from "react-icons/fa";
 import { useCopyToClipboard } from "react-use";
@@ -47,13 +48,12 @@ export const ProfileBio = forwardRef<StackProps, "div">(function ProfileBio(
 		}
 	};
 	return (
-		<Stack
+		<Flex
 			direction={["column", null, "row"]}
 			as="section"
 			layerStyle="profileSection"
 			pt={0}
 			width="full"
-			spacing={0}
 			gap={6}
 			ref={ref}
 		>
@@ -136,6 +136,6 @@ export const ProfileBio = forwardRef<StackProps, "div">(function ProfileBio(
 					/>
 				</HStack>
 			</Box>
-		</Stack>
+		</Flex>
 	);
 });

@@ -16,7 +16,7 @@ export function TimeZoneSection(props: FlexProps) {
 	return (
 		<Box as="section" layerStyle="profileSection" pt={0}>
 			<Flex direction="column" justify="space-between" {...props}>
-				<Flex align="center">
+				<Flex align="center" mb={10}>
 					<Text fontSize="xs" color="whiteAlpha.600">
 						Time Zone
 					</Text>

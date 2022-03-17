@@ -3,7 +3,7 @@ import { LegacyRef } from "react";
 import { Flex, Image, VStack } from "@chakra-ui/react";
 import { useMeasure } from "react-use";
 
-import { MotionBox } from "@/components/atoms/motion";
+import { MotionFlex } from "@/components/atoms/motion";
 import { Profile } from "@/types/profile";
 
 import { ProfileAbout } from "./profile-about";
@@ -17,13 +17,11 @@ export function ProfileTemplate({ profile }: { profile: Profile }) {
 	console.log(height);
 	return (
 		<ProfileContext.Provider value={profile}>
-			<MotionBox
+			<MotionFlex
 				as="main"
 				py={8}
-				px={6}
-				display="flex"
-				flexFlow="row"
-				alignItems="flex-start"
+				direction={{ base: "column", md: "row" }}
+				align={{ base: "stretch", md: "flex-start" }}
 				gap={8}
 			>
 				<Image
@@ -36,14 +34,16 @@ export function ProfileTemplate({ profile }: { profile: Profile }) {
 					position={["unset", null, "sticky"]}
 					top={6}
 					src={profile.avatar}
+					minW={0}
 				/>
-				<Flex direction="column" align="stretch">
+
+				<Flex direction="column" align="stretch" width="100%" minW={0}>
 					<ProfileBio ref={ref as LegacyRef<HTMLDivElement>} />
 					<ProfileAbout />
 					<ProfileExperiences />
 				</Flex>
 				<ProfileSidebar bioHeight={height} />
-			</MotionBox>
+			</MotionFlex>
 		</ProfileContext.Provider>
 	);
 }

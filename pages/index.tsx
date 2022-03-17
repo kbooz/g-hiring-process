@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 
+import { Container } from "@chakra-ui/react";
 import { useMeasure } from "react-use";
 
 import Menu from "@/components/organisms/menu";
@@ -23,8 +24,10 @@ const Home: NextPage = () => {
 			<Head>
 				<title>New NFT | Gateway</title>
 			</Head>
-			<Menu />
-			<NewNFTTemplate nft={nft} />
+			<Container maxW="container.xl">
+				<Menu />
+				<NewNFTTemplate nft={nft} />
+			</Container>
 		</>
 	);
 };
