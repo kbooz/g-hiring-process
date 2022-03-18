@@ -2,14 +2,14 @@ import type { NextPage } from "next";
 import Head from "next/head";
 
 import { Container } from "@chakra-ui/react";
-import { useMeasure } from "react-use";
 
 import Menu from "@/components/organisms/menu";
 import { ProfileTemplate } from "@/components/template/profile";
 import { NFT } from "@/types/nft";
 import { ProfileExperience } from "@/types/profile";
 
-const nft = (): NFT => ({
+const nft = (id?: string): NFT => ({
+	id,
 	name: "BANK.Beginner",
 	altName: "Bankless Beginner",
 	image: `https://source.unsplash.com/random/300x300/?generative&a=${Math.random()}`,
@@ -30,17 +30,17 @@ const experience = (): ProfileExperience => ({
 		{
 			title: "Contributor NFT",
 			type: "nft",
-			nfts: [nft()],
+			nfts: [nft("1")],
 		},
 		{
 			title: "Large Credentials",
 			type: "nft",
-			nfts: [nft(), nft(), nft(), nft(), nft()],
+			nfts: [nft("a"), nft("b"), nft("c"), nft("d"), nft("e")],
 		},
 		{
 			title: "Other Credentials",
 			type: "nft",
-			nfts: [nft(), nft(), nft()],
+			nfts: [nft("x"), nft("y"), nft("z")],
 		},
 	],
 });

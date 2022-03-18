@@ -9,6 +9,8 @@ import {
 
 import { NFT } from "@/types/nft";
 
+import { MotionBox, MotionBoxProps } from "../atoms/motion";
+
 type Props = {
 	isSmall?: boolean;
 } & NFT;
@@ -20,9 +22,9 @@ function NFTBadge({
 	image,
 	isSmall,
 	...props
-}: Props & BoxProps) {
+}: Props & MotionBoxProps) {
 	return (
-		<Box borderRadius="2xl" overflow="hidden" {...props}>
+		<MotionBox borderRadius="2xl" overflow="hidden" {...props}>
 			<Image
 				src={image}
 				alt={altName}
@@ -68,7 +70,7 @@ function NFTBadge({
 					</VStack>
 				)}
 			</HStack>
-		</Box>
+		</MotionBox>
 	);
 }
 

@@ -2,7 +2,55 @@ import { Box, Button, Flex, IconButton, Spacer, Text } from "@chakra-ui/react";
 
 import { GateIcon } from "@/components/atoms/icons";
 
-import { features } from "./mock";
+import { features, FilterButton } from "./mock";
+
+function TotalTag({ total }: { total?: number }) {
+	if (!total) return null;
+	return (
+		<Text
+			display="flex"
+			alignItems="center"
+			justifyContent="center"
+			fontSize="xs"
+			lineHeight="1"
+			rounded="full"
+			bg="brand.purple.900"
+			color="white"
+			width={6}
+			height={6}
+			transition="all 0.2s ease-in-out"
+			_groupHover={{
+				color: "white",
+				transform: "scale(1.1)",
+			}}
+			_groupFocus={{
+				color: "white",
+				transform: "scale(1.1)",
+			}}
+		>
+			{total}
+		</Text>
+	);
+}
+
+function FilterButtons({ options }: { options: FilterButton[] }) {
+	return (
+		<>
+			{options.map(({ label, total }) => (
+				<Button
+					key={label}
+					variant="tag"
+					rightIcon={<TotalTag total={total} />}
+					disabled={!total}
+					size="sm"
+					className="group"
+				>
+					{label}
+				</Button>
+			))}
+		</>
+	);
+}
 
 export function FiltersSection() {
 	return (
@@ -27,17 +75,7 @@ export function FiltersSection() {
 					/>
 				</Flex>
 				<Flex gap={2} wrap="wrap" mb="6">
-					{features.skills.map(({ label, total }) => (
-						<Button
-							key={label}
-							variant="tag"
-							rightIcon={total ? <Text>{total}</Text> : undefined}
-							disabled={!total}
-							size="sm"
-						>
-							{label}
-						</Button>
-					))}
+					<FilterButtons options={features.skills} />
 				</Flex>
 			</Box>
 			<Box>
@@ -45,17 +83,7 @@ export function FiltersSection() {
 					Knowledge
 				</Text>
 				<Flex gap={2} wrap="wrap" mb="6">
-					{features.knowledges.map(({ label, total }) => (
-						<Button
-							key={label}
-							variant="tag"
-							rightIcon={total ? <Text>{total}</Text> : undefined}
-							disabled={!total}
-							size="sm"
-						>
-							{label}
-						</Button>
-					))}
+					<FilterButtons options={features.knowledges} />
 				</Flex>
 			</Box>
 			<Box>
@@ -63,17 +91,7 @@ export function FiltersSection() {
 					Attitudes
 				</Text>
 				<Flex gap={2} wrap="wrap">
-					{features.attitudes.map(({ label, total }) => (
-						<Button
-							key={label}
-							variant="tag"
-							rightIcon={total ? <Text>{total}</Text> : undefined}
-							disabled={!total}
-							size="sm"
-						>
-							{label}
-						</Button>
-					))}
+					<FilterButtons options={features.attitudes} />
 				</Flex>
 			</Box>
 		</Box>

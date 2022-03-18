@@ -1,3 +1,6 @@
+/**
+ * Adds http/https protocol to invalid links
+ */
 const httpProtocol = /^(?:f|ht)tps?\:\/\//;
 export function prependProtocol(url: string, isHttps = true) {
 	if (!httpProtocol.test(url)) {

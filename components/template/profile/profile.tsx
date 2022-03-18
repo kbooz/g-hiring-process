@@ -14,7 +14,6 @@ import { ProfileContext } from "./profile.context";
 
 export function ProfileTemplate({ profile }: { profile: Profile }) {
 	const [ref, { height }] = useMeasure<HTMLElement>();
-	console.log(height);
 	return (
 		<ProfileContext.Provider value={profile}>
 			<MotionFlex

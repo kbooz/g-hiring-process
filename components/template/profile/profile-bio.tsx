@@ -64,10 +64,11 @@ export const ProfileBio = forwardRef<StackProps, "div">(function ProfileBio(
 				src={avatar}
 			/>
 			<Box width="full">
-				<Stack
-					direction={["column", null, "row"]}
-					justifyContent="space-between"
-					alignItems={"flex-start"}
+				<Flex
+					direction={{ base: "column", md: "row" }}
+					justify="space-between"
+					align="flex-start"
+					gap={4}
 				>
 					<Box>
 						<Text textStyle="sectionTitle" fontSize={36} lineHeight="1" mb={3}>
@@ -102,7 +103,7 @@ export const ProfileBio = forwardRef<StackProps, "div">(function ProfileBio(
 							</MenuList>
 						</Menu>
 					</Flex>
-				</Stack>
+				</Flex>
 				<Text whiteSpace="pre-line" mt={5} color="whiteAlpha.600">
 					{bio}
 				</Text>
@@ -111,7 +112,11 @@ export const ProfileBio = forwardRef<StackProps, "div">(function ProfileBio(
 						{url}
 					</Link>
 				</NextLink>
-				<Flex gap={2} mt={7} justifyContent={{}}>
+				<Flex
+					gap={2}
+					mt={7}
+					justify={{ base: "space-between", md: "flex-start" }}
+				>
 					{links.map(({ href, icon }) => (
 						<NextLink key={icon} href={href} passHref>
 							<IconButton
