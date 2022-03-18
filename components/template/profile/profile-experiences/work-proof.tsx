@@ -65,7 +65,7 @@ export function WorkProof({ title, margin, type, isLast, nfts }: Props) {
 				</Button>
 				{nfts.length > 3 && <Button variant="inline">See All</Button>}
 			</HStack>
-			<MotionFlex
+			<MotionBox
 				transition={{ type: "tween" }}
 				variants={{
 					open: { height: "auto", opacity: 1 },
@@ -73,27 +73,31 @@ export function WorkProof({ title, margin, type, isLast, nfts }: Props) {
 				}}
 				overflowY="hidden"
 				overflowX={{ base: "visible", md: "hidden" }}
-				direction="row"
-				gap={3}
 				ml={{ base: 0, md: margin }}
-				py={6}
-				px={{ base: margin, md: 0 }}
-				align="flex-start"
-				wrap={{ base: "nowrap", md: "wrap" }}
 				width={{ base: `calc(100% + 1rem)`, md: "100%" }}
-				scrollSnapType="x mandatory"
-				scrollSnapAlign="start"
 			>
-				{nfts.map((nft) => (
-					<NFTBadge
-						key={nft.name}
-						w={200}
-						isSmall
-						{...nft}
-						minW={{ base: 200, md: "auto" }}
-					/>
-				))}
-			</MotionFlex>
+				<MotionFlex
+					direction="row"
+					gap={3}
+					py={6}
+					px={{ base: margin, md: 0 }}
+					align="flex-start"
+					wrap={{ base: "nowrap", md: "wrap" }}
+					scrollSnapType="x mandatory"
+					scrollSnapAlign="start"
+					overflowX={{ base: "auto", md: "hidden" }}
+				>
+					{nfts.slice(0, 3).map((nft) => (
+						<NFTBadge
+							key={nft.name}
+							w={200}
+							isSmall
+							{...nft}
+							minW={{ base: 200, md: "auto" }}
+						/>
+					))}
+				</MotionFlex>
+			</MotionBox>
 		</MotionBox>
 	);
 }

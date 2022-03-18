@@ -12,7 +12,7 @@ type Props = {
 export function ProfileSidebar({ bioHeight, ...props }: Props & BoxProps) {
 	return (
 		<Box {...props}>
-			<TimeZoneSection minHeight={{ base: "auto", md: bioHeight }} />
+			<TimeZoneSection height={{ base: "none", md: bioHeight }} />
 			<FiltersSection />
 			<LanguagesSection />
 			<DAOSuggestionSection />
