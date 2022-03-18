@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, BoxProps } from "@chakra-ui/react";
 
 import { DAOSuggestionSection } from "./dao-suggestion-section";
 import { FiltersSection } from "./filters-section";
@@ -9,10 +9,10 @@ type Props = {
 	bioHeight?: number;
 };
 
-export function ProfileSidebar({ bioHeight }: Props) {
+export function ProfileSidebar({ bioHeight, ...props }: Props & BoxProps) {
 	return (
-		<Box flex={1}>
-			<TimeZoneSection minHeight={{ base: "auto", lg: bioHeight }} />
+		<Box {...props}>
+			<TimeZoneSection minHeight={{ base: "auto", md: bioHeight }} />
 			<FiltersSection />
 			<LanguagesSection />
 			<DAOSuggestionSection />

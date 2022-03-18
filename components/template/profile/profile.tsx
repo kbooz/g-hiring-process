@@ -41,7 +41,11 @@ export function ProfileTemplate({ profile }: { profile: Profile }) {
 					<ProfileAbout />
 					<ProfileExperiences />
 				</Flex>
-				<ProfileSidebar bioHeight={height} />
+				<ProfileSidebar
+					bioHeight={height}
+					width="full"
+					maxWidth={{ base: "none", md: "25%" }}
+				/>
 			</MotionFlex>
 		</ProfileContext.Provider>
 	);
