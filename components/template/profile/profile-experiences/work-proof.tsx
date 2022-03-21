@@ -1,21 +1,47 @@
+import { useRouter } from "next/router";
+import { useEffect, useRef, useState } from "react";
+
 import { Box, Button, Flex, HStack, Icon, Text } from "@chakra-ui/react";
+import { AnimatePresence } from "framer-motion";
 import { FaChevronDown } from "react-icons/fa";
 import { useToggle } from "react-use";
 
 import { GateIcon } from "@/components/atoms/icons";
 import { MotionBox, MotionCenter, MotionFlex } from "@/components/atoms/motion";
 import NFTBadge from "@/components/molecules/nft-badge";
-import type { WorkProof as WorkProofI } from "@/types/profile";
+import type {
+	ProfileExperience,
+	WorkProof as WorkProofI,
+} from "@/types/profile";
+
+import { useNewNFTRouteChange } from "./utils";
 
 type Props = {
 	margin: number;
 	isLast?: boolean;
-} & WorkProofI;
+	experience: ProfileExperience;
+	proof: WorkProofI;
+};
 
-export function WorkProof({ title, margin, type, isLast, nfts }: Props) {
+const duration = 0.5;
+
+export function WorkProof({ margin, isLast, proof }: Props) {
+	const { nfts, title } = proof;
 	const [isOpen, toggleOpen] = useToggle(true);
+	const sectionRef = useRef<HTMLElement>(null);
+
+	/* Enables overflow on the current section */
+	const [hasNewNFT, newNFTId] = useNewNFTRouteChange(nfts, duration);
+
+	useEffect(() => {
+		if (hasNewNFT) {
+			sectionRef.current?.scrollIntoView({ behavior: "smooth" });
+		}
+	}, [hasNewNFT]);
+
 	return (
 		<MotionBox
+			ref={sectionRef}
 			position="relative"
 			animate={isOpen ? "open" : "closed"}
 			_before={{
@@ -71,10 +97,12 @@ export function WorkProof({ title, margin, type, isLast, nfts }: Props) {
 					open: { height: "auto", opacity: 1 },
 					closed: { height: 0, opacity: 0 },
 				}}
-				overflowY="hidden"
-				overflowX={{ base: "visible", md: "hidden" }}
 				ml={{ base: 0, md: margin }}
 				width={{ base: `calc(100% + 1rem)`, md: "100%" }}
+				{...(!hasNewNFT && {
+					overflowY: "hidden",
+					overflowX: { base: "visible", md: "hidden" },
+				})}
 			>
 				<MotionFlex
 					direction="row"
@@ -85,17 +113,34 @@ export function WorkProof({ title, margin, type, isLast, nfts }: Props) {
 					wrap={{ base: "nowrap", md: "wrap" }}
 					scrollSnapType="x mandatory"
 					scrollSnapAlign="start"
-					overflowX={{ base: "auto", md: "hidden" }}
+					{...(!hasNewNFT && {
+						overflowX: { base: "auto", md: "hidden" },
+					})}
 				>
-					{nfts.slice(0, 3).map((nft) => (
-						<NFTBadge
-							key={nft.name}
-							w={200}
-							isSmall
-							{...nft}
-							minW={{ base: 200, md: "auto" }}
-						/>
-					))}
+					<AnimatePresence>
+						{nfts.slice(0, 3).map((nft) => (
+							<NFTBadge
+								key={nft.id}
+								{...(newNFTId === nft.id && {
+									layoutId: `animated-${nft.id}`,
+									animate: {
+										opacity: 1,
+										transition: {
+											duration: 10,
+										},
+									},
+									exit: { opacity: 0 },
+									transition: {
+										duration,
+									},
+								})}
+								isSmall
+								w={200}
+								minW={{ base: 200, md: "auto" }}
+								{...nft}
+							/>
+						))}
+					</AnimatePresence>
 				</MotionFlex>
 			</MotionBox>
 		</MotionBox>

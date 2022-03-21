@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Box, Button, HStack, Img, Text } from "@chakra-ui/react";
+import { useSessionStorage } from "react-use";
 
 import {
 	MotionBox,
@@ -22,6 +23,7 @@ type Props = {
 };
 
 export function NewNFTTemplate({ nft }: Props) {
+	const [_, setSessionNFT] = useSessionStorage("new-nft");
 	return (
 		<>
 			<MotionFlex
@@ -75,8 +77,8 @@ export function NewNFTTemplate({ nft }: Props) {
 					justifyContent="center"
 					variants={buttonsAnimation}
 				>
-					<Link href={`/profile?nft=${nft.id}`} passHref>
-						<Button as="a" fontSize="xs">
+					<Link href={`/profile`} passHref>
+						<Button as="a" fontSize="xs" onClick={() => setSessionNFT(nft.id)}>
 							Check your profile
 						</Button>
 					</Link>
