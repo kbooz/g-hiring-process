@@ -10,7 +10,7 @@ import { NFT, NFTwithDAO } from "@/types/nft";
 
 const Home: NextPage = () => {
 	const nft: NFTwithDAO = {
-		id: "1",
+		id: "test",
 		name: "BANK.Beginner",
 		altName: "Bankless Beginner",
 		image: "https://source.unsplash.com/random/500x500/?generative",

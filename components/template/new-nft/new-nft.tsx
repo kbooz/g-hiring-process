@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import Link from "next/link";
 
 import { Box, Button, HStack, Img, Text } from "@chakra-ui/react";
@@ -18,10 +17,6 @@ import {
 	buttonsAnimation,
 } from "./animations";
 
-const Fireworks = dynamic(() => import("@/components/atoms/fireworks"), {
-	ssr: false,
-});
-
 type Props = {
 	nft: NFTwithDAO;
 };
@@ -29,9 +24,6 @@ type Props = {
 export function NewNFTTemplate({ nft }: Props) {
 	return (
 		<>
-			<Box position="fixed" zIndex={1} inset={0}>
-				<Fireworks />
-			</Box>
 			<MotionFlex
 				as="main"
 				direction="column"
@@ -68,13 +60,12 @@ export function NewNFTTemplate({ nft }: Props) {
 						</HStack>
 					</Text>
 				</MotionBox>
-				<MotionBox
-					variants={cardAnimation}
-					w="25%"
-					minW="72"
-					sx={{ aspectRatio: "1 / 1", perspective: "600px" }}
-				>
-					<NFTBadge {...nft} />
+				<MotionBox variants={cardAnimation} w="25%" minW="72">
+					<NFTBadge
+						key={`animated-${nft.id}`}
+						layoutId={`animated-${nft.id}`}
+						{...nft}
+					/>
 				</MotionBox>
 				<MotionButtonGroup
 					flexFlow={["column", "row"]}
@@ -84,7 +75,7 @@ export function NewNFTTemplate({ nft }: Props) {
 					justifyContent="center"
 					variants={buttonsAnimation}
 				>
-					<Link href="/profile" passHref>
+					<Link href={`/profile?nft=${nft.id}`} passHref>
 						<Button as="a" fontSize="xs">
 							Check your profile
 						</Button>

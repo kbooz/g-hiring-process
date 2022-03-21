@@ -19,16 +19,14 @@ import { ProfileExperience } from "@/types/profile";
 
 import { WorkProof } from "./work-proof";
 
-export function ExperienceSeciton({
-	dao,
-	description,
-	role,
-	start,
-	end,
-	period,
-	workProof,
-}: ProfileExperience) {
+type Props = {
+	experience: ProfileExperience;
+};
+
+export function ExperienceSeciton({ experience }: Props) {
 	const margin = 5;
+	const { id, dao, description, role, start, end, period, workProof } =
+		experience;
 	return (
 		<Box alignItems="stretch" pl={margin}>
 			<Flex ml={-margin} alignItems="center" justifyContent="space-between">
@@ -60,10 +58,11 @@ export function ExperienceSeciton({
 			</Box>
 			{workProof?.map((proof, i) => (
 				<WorkProof
-					key={proof.title}
+					key={id + proof.title}
 					margin={margin}
 					isLast={i === workProof.length - 1}
-					{...proof}
+					experience={experience}
+					proof={proof}
 				/>
 			))}
 		</Box>

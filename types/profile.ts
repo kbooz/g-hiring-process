@@ -10,6 +10,7 @@ export type WorkProof = {
 };
 
 export type ProfileExperience = {
+	id: string;
 	role: string;
 	dao: DAO;
 	start: string;

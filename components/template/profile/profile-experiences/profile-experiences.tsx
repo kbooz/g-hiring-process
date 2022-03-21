@@ -31,10 +31,7 @@ export function ProfileExperiences() {
 			</HStack>
 			<VStack spacing="0" gap={10} alignItems="stretch">
 				{experiences.map((experience) => (
-					<ExperienceSeciton
-						key={experience.role + experience.start}
-						{...experience}
-					/>
+					<ExperienceSeciton key={experience.id} experience={experience} />
 				))}
 			</VStack>
 		</Box>

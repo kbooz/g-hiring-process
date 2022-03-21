@@ -24,7 +24,7 @@ export function ProfileTemplate({ profile }: { profile: Profile }) {
 				gap={8}
 			>
 				<Image
-					display={["none", null, null, "block"]}
+					display={{ base: "none", lg: "block" }}
 					w="full"
 					maxW={210}
 					sx={{ aspectRatio: "210/260" }}

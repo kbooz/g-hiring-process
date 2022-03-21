@@ -16,7 +16,8 @@ const nft = (id?: string): NFT => ({
 	date: "Dec 2021",
 });
 
-const experience = (): ProfileExperience => ({
+const experience = (id: string): ProfileExperience => ({
+	id,
 	role: "UI Designer",
 	dao: {
 		name: "Bankless DAO",
@@ -30,7 +31,7 @@ const experience = (): ProfileExperience => ({
 		{
 			title: "Contributor NFT",
 			type: "nft",
-			nfts: [nft("1")],
+			nfts: [nft("1"), nft("test")],
 		},
 		{
 			title: "Large Credentials",
@@ -86,7 +87,7 @@ const Profile: NextPage = () => {
 						],
 						about:
 							"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at felis quis sem facilisis convallis. Curabitur vel nisl tortor. Quisque eleifend nibh magna, vitae pellentesque ante scelerisque nec. Proin in lacus viverra, facilisis massa sed, iaculis dui. Integer maximus nulla sit amet massa tristique, in sagittis neque volutpat. Suspendisse sit amet suscipit arcu. Mauris volutpat tellus nunc, at lobortis leo sollicitudin nec.",
-						experiences: [experience(), experience()],
+						experiences: [experience("1")],
 					}}
 				/>
 			</Container>

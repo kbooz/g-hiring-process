@@ -15,15 +15,24 @@ import {
 	Flex,
 	type FlexProps,
 } from "@chakra-ui/react";
-import { CustomDomComponent, motion, MotionProps } from "framer-motion";
+import {
+	CustomDomComponent,
+	motion,
+	MotionProps,
+	Transition,
+} from "framer-motion";
 
 /* Fix for conflicting "transition" prop */
 type RemoveFromBase<T> = Omit<T, "transition">;
 type MotionChakra<T> = CustomDomComponent<RemoveFromBase<T>>;
 
 /* Generates */
-type MotionChakraProps<T> = React.PropsWithoutRef<T & MotionProps> &
+type MotionObjectProps<T> = React.PropsWithoutRef<T & MotionProps> &
 	React.RefAttributes<SVGElement | HTMLElement>;
+
+type MotionChakraProps<T> = Omit<MotionObjectProps<T>, "transition"> & {
+	transition?: Transition;
+};
 
 export const MotionIcon: MotionChakra<IconProps> = motion(Icon);
 

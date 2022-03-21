@@ -1,11 +1,4 @@
-import {
-	Box,
-	type BoxProps,
-	Image,
-	Text,
-	HStack,
-	VStack,
-} from "@chakra-ui/react";
+import { Box, Image, Text, HStack, VStack } from "@chakra-ui/react";
 
 import { NFT } from "@/types/nft";
 
@@ -16,6 +9,7 @@ type Props = {
 } & NFT;
 
 function NFTBadge({
+	id,
 	name,
 	altName,
 	date,

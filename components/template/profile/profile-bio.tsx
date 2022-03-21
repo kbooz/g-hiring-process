@@ -55,7 +55,7 @@ export const ProfileBio = forwardRef<StackProps, "div">(function ProfileBio(
 			ref={ref}
 		>
 			<Image
-				display={["block", null, null, "none"]}
+				display={{ base: "block", lg: "none" }}
 				w="full"
 				maxW={210}
 				sx={{ aspectRatio: "210/260" }}
