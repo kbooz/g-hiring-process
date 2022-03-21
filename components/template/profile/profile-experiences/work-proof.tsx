@@ -23,7 +23,7 @@ type Props = {
 	proof: WorkProofI;
 };
 
-const duration = 0.5;
+const duration = 0.85;
 
 export function WorkProof({ margin, isLast, proof }: Props) {
 	const { nfts, title } = proof;

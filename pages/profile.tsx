@@ -31,7 +31,7 @@ const experience = (id: string): ProfileExperience => ({
 		{
 			title: "Contributor NFT",
 			type: "nft",
-			nfts: [nft("1"), nft("test")],
+			nfts: [nft("test"), nft("123")],
 		},
 		{
 			title: "Large Credentials",
