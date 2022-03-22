@@ -1,16 +1,4 @@
-import {
-	Avatar,
-	Box,
-	Button,
-	Flex,
-	HStack,
-	Icon,
-	IconButton,
-	Image,
-	Img,
-	Text,
-	VStack,
-} from "@chakra-ui/react";
+import { Avatar, Box, Flex, IconButton, Text } from "@chakra-ui/react";
 import { FaPen } from "react-icons/fa";
 
 import { CropText } from "@/components/atoms/crop-text";
