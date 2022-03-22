@@ -44,6 +44,7 @@ export type MotionBoxProps = MotionChakraProps<BoxProps>;
 export const MotionCenter: MotionChakra<BoxProps> = motion(Center);
 
 export const MotionFlex: MotionChakra<FlexProps> = motion(Flex);
+export type MotionFlexProps = MotionChakraProps<FlexProps>;
 
 export const MotionStack: MotionChakra<StackProps> = motion(Stack);
 export const MotionHStack: MotionChakra<StackProps> = motion(HStack);

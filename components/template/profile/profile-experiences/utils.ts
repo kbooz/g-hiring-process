@@ -11,7 +11,6 @@ export function useNewNFTRouteChange(nfts: NFT[], animationDuration: number) {
 	const [hasNewNFT, setHasNewNFT] = useState(() =>
 		nfts.some((nft) => nft.id === sessionNewNFT)
 	);
-	console.log(sessionNewNFT, hasNewNFT);
 
 	/* Reset state after x duration if has new nft on current section */
 	useEffect(() => {
