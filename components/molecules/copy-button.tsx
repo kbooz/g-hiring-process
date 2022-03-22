@@ -36,6 +36,7 @@ export function CopyButton({ text, ...props }: Props) {
 				/>
 			}
 			aria-label="copy address"
+			onClick={onClick}
 		/>
 	);
 }
