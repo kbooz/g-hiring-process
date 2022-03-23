@@ -14,7 +14,7 @@ function Galaxy() {
 	const ref = useRef<Group>(null!);
 
 	useFrame(({ clock }) => {
-		ref.current.scale.lerp(fullScale, clock.getElapsedTime() / 100);
+		ref.current.scale.lerp(fullScale, clock.getElapsedTime() / 10);
 	});
 
 	return (
@@ -27,9 +27,10 @@ function Galaxy() {
 				position={[Math.PI / 2, 0, 1]}
 			/>
 			<Stars />
-			<Blobs />
+			<Blobs position={[-3, 1, 0]} />
+			<Blobs position={[3, -1, 0]} color="blue" />
 			<pointLight position={[100, 100, -200]} color="red" intensity={10} />
-			<pointLight position={[-10, -10, -10]} color="red" intensity={10} />
+			<pointLight position={[-10, -10, -10]} color="blue" intensity={10} />
 		</group>
 	);
 }

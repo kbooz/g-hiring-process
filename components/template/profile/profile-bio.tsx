@@ -108,7 +108,12 @@ export const ProfileBio = forwardRef<StackProps, "div">(function ProfileBio(
 					{bio}
 				</Text>
 				<NextLink passHref href={prependProtocol(url)}>
-					<Link target="_blank" mt={7} display="inline-block">
+					<Link
+						target="_blank"
+						mt={7}
+						display="inline-block"
+						variant="underline"
+					>
 						{url}
 					</Link>
 				</NextLink>

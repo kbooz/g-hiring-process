@@ -1,15 +1,11 @@
 import Link from "next/link";
 
 import {
-	Box,
 	type BoxProps,
 	Button,
 	forwardRef,
-	HStack,
 	Text,
-	Icon,
 	Menu as ChakraMenu,
-	Menu,
 	MenuButton,
 	MenuList,
 	MenuItem,
@@ -17,6 +13,7 @@ import {
 	Flex,
 	Spacer,
 	Show,
+	Link as ChakraLink,
 } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 import { AiFillCaretDown } from "react-icons/ai";
@@ -51,8 +48,10 @@ const Manu = forwardRef<BoxProps, "nav">(function Manu(props, ref) {
 			<Spacer />
 			<Show above="md">
 				<Flex direction="row" gap={4} align="center">
-					{["DAOs", "Gates", "People", "Join Discord"].map((s) => (
-						<Text key={s}>{s}</Text>
+					{["DAOs", "Gates", "People", "Join Discord"].map((link) => (
+						<ChakraLink variant="underline" key={link}>
+							{link}
+						</ChakraLink>
 					))}
 
 					<IconButton

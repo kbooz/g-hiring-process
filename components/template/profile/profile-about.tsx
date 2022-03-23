@@ -22,7 +22,7 @@ export function ProfileAbout() {
 					aria-label="add new experience"
 				/>
 			</HStack>
-			<CropText splitParagraph="\n">{about}</CropText>
+			<CropText>{about}</CropText>
 		</Box>
 	);
 }

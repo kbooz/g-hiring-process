@@ -14,6 +14,8 @@ import {
 	Center,
 	Flex,
 	type FlexProps,
+	ButtonProps,
+	Button,
 } from "@chakra-ui/react";
 import {
 	CustomDomComponent,
@@ -38,6 +40,7 @@ export const MotionIcon: MotionChakra<IconProps> = motion(Icon);
 
 export const MotionButtonGroup: MotionChakra<ButtonGroupProps> =
 	motion(ButtonGroup);
+export const MotionButton: MotionChakra<ButtonProps> = motion(Button);
 
 export const MotionBox: MotionChakra<BoxProps> = motion(Box);
 export type MotionBoxProps = MotionChakraProps<BoxProps>;
@@ -51,3 +54,4 @@ export const MotionHStack: MotionChakra<StackProps> = motion(HStack);
 export const MotionVStack: MotionChakra<StackProps> = motion(VStack);
 
 export const MotionText: MotionChakra<TextProps> = motion(Text);
+export type MotionTextProps = MotionChakraProps<TextProps>;
