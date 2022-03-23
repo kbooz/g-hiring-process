@@ -34,6 +34,7 @@ export function ProfileTemplate({ profile }: { profile: Profile }) {
 					top={6}
 					src={profile.avatar}
 					minW={0}
+					backgroundSize="cover"
 				/>
 
 				<Flex direction="column" align="stretch" width="100%" minW={0}>

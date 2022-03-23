@@ -1,3 +1,15 @@
+[] - Doc
+
+	- Estrutura
+	- Futuro (Storybook, shared components? Design System)
+
+
+[] - Fix Crop Text
+[] - Tag button line height
+[] - Tab focus use gradient
+
 [] - Add next-i18next
 [] - Improve gradients to use css variables instead
 [] - Fix transition on mobile
+
+

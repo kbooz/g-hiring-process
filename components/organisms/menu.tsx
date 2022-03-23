@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import {
 	Box,
 	type BoxProps,
@@ -40,7 +42,11 @@ const Manu = forwardRef<BoxProps, "nav">(function Manu(props, ref) {
 			zIndex={10}
 			{...props}
 		>
-			<GateIcon type="logo" w={10} h={10} />
+			<Link href="/" passHref>
+				<a>
+					<GateIcon type="logo" w={10} h={10} />
+				</a>
+			</Link>
 			<Search display={{ md: "flex", sm: "none" }} maxWidth={{ lg: "30ch" }} />
 			<Spacer />
 			<Show above="md">

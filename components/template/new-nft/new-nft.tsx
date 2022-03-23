@@ -66,6 +66,7 @@ export function NewNFTTemplate({ nft, ...props }: Props) {
 					key={`animated-${nft.id}`}
 					layoutId={`animated-${nft.id}`}
 					{...nft}
+					date={undefined}
 				/>
 			</MotionBox>
 			<MotionButtonGroup
