@@ -18,7 +18,7 @@ export function CropText({
 }: Props) {
 	const [isOpen, setIsOpen] = useState(() => {
 		if (type === "percentage") return false;
-		return !children.includes("\\n");
+		return !children.includes("\n");
 	});
 
 	const onShow = () => setIsOpen(true);
@@ -29,6 +29,9 @@ export function CropText({
 			return children.slice(0, Math.floor(children.length * shownPercentage));
 		return children.split(splitParagraph)[0];
 	}, [isOpen, children, type, shownPercentage, splitParagraph]);
+
+	console.log(isOpen, subtext);
+
 	return (
 		<Text whiteSpace="pre-line" {...props}>
 			{subtext}

@@ -3,7 +3,7 @@ import Head from "next/head";
 
 import { Box, Container } from "@chakra-ui/react";
 
-import { Explosion } from "@/components/atoms/explosion";
+import { Explosion } from "@/components/organisms/explosion";
 import Menu from "@/components/organisms/menu";
 import { NewNFTTemplate } from "@/components/template/new-nft/new-nft";
 import { banklessDAO } from "@/mock/dao";
